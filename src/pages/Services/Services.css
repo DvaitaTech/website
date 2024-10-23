@@ -1,0 +1,71 @@
+.services-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  padding: 2rem;
+  background: var(--neutral-200);
+  border-radius: 8px;
+  border: 1px solid var(--neutral-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.service-description {
+  color: var(--neutral-600);
+  margin: 1rem 0;
+}
+
+.service-features {
+  margin: 1.5rem 0;
+}
+
+.service-features ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.service-features li {
+  margin: 0.5rem 0;
+  color: var(--neutral-600);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background: var(--neutral-300);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+}
+
+.case-study {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--neutral-300);
+}
+
+@media (max-width: 768px) {
+  .services-page {
+    padding: 1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
