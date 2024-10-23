@@ -18,6 +18,10 @@
   /* Shadow */
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+
+  /* Button Colors */
+  --button-bg: var(--primary-100);
+  --button-text: var(--neutral-100);
 }
 
 [data-theme='dark'] {
@@ -37,4 +41,8 @@
 
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+
+  /* Button Colors for Dark Mode */
+  --button-bg: var(--primary-200);
+  --button-text: var(--neutral-100);
 }
