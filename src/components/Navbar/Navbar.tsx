@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import './Navbar.css'
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+interface NavbarProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
   const handleLinkClick = () => {
     setIsMenuOpen(false)
   }
