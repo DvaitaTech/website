@@ -222,61 +222,66 @@ const Services = () => {
   ]
 
   return (
-    <div className="services-page">
-      <h1>Our Services</h1>
-      <p className="services-intro">
-        Detailed information about our core services and how we can help transform your business
-      </p>
-      
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div key={index} className="service-card">
-            <h2>{service.title}</h2>
-            <p className="service-description">{service.description}</p>
-            
-            <div className="service-features">
-              <h3>Key Features</h3>
-              <ul>
-                {service.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-            </div>
+    <main className="services-page">
+      <article>
+        <header>
+          <h1>Cloud & DevOps Services</h1>
+          <p className="services-intro">
+            Comprehensive cloud solutions and DevOps services to transform your business
+          </p>
+        </header>
 
-            <div className="service-tech">
-              <h3>Technologies</h3>
-              <div className="tech-tags">
-                {service.technologies.map((tech, idx) => (
-                  <span key={idx} className="tech-tag">{tech}</span>
+        <section className="services-grid" aria-label="Services">
+          {services.map((service, index) => (
+            <article key={index} className="service-card">
+              <h2>{service.title}</h2>
+              <p className="service-description">{service.description}</p>
+              
+              <div className="service-features">
+                <h3>Key Features</h3>
+                <ul>
+                  {service.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="service-tech">
+                <h3>Technologies</h3>
+                <div className="tech-tags" role="list">
+                  {service.technologies.map((tech, idx) => (
+                    <span key={idx} className="tech-tag" role="listitem">{tech}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="case-studies">
+                <h3>Case Studies</h3>
+                {service.caseStudies.map((caseStudy, caseIndex) => (
+                  <button 
+                    key={caseIndex}
+                    className="case-study-button"
+                    onClick={() => setSelectedCaseStudy(caseStudy)}
+                    aria-label={`View case study: ${caseStudy.title}`}
+                  >
+                    {caseStudy.title}
+                  </button>
                 ))}
               </div>
-            </div>
-
-            <div className="case-studies">
-              <h3>Case Studies</h3>
-              {service.caseStudies.map((caseStudy, caseIndex) => (
-                <button 
-                  key={caseIndex}
-                  className="case-study-button"
-                  onClick={() => setSelectedCaseStudy(caseStudy)}
-                >
-                  {caseStudy.title}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+            </article>
+          ))}
+        </section>
+      </article>
 
       <Modal 
         isOpen={!!selectedCaseStudy} 
         onClose={() => setSelectedCaseStudy(null)}
       >
         {selectedCaseStudy && (
-          <div className="case-study-modal">
+          <article className="case-study-modal">
             <h2>{selectedCaseStudy.title}</h2>
             <p className="case-study-description">{selectedCaseStudy.description}</p>
-            
+
             <h3>Challenge</h3>
             <p>{selectedCaseStudy.challenge}</p>
             
@@ -291,12 +296,12 @@ const Services = () => {
             </ul>
             
             <h3>Technologies Used</h3>
-            <div className="tech-tags">
+            <div className="tech-tags" role="list">
               {selectedCaseStudy.technologies.map((tech, index) => (
-                <span key={index} className="tech-tag">{tech}</span>
+                <span key={index} className="tech-tag" role="listitem">{tech}</span>
               ))}
             </div>
-          </div>
+          </article>
         )}
       </Modal>
     </div>

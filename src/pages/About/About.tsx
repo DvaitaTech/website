@@ -44,47 +44,48 @@ const About = () => {
   ]
 
   return (
-    <div className="about-page">
-      <section className="about-hero">
-        <h1>About Us</h1>
+    <main className="about-page">
+      <article>
+        <header className="about-hero">
         <p>Transforming businesses through innovative cloud solutions and technical excellence</p>
       </section>
 
-      <div className="about-content">
-        <section className="mission">
-          <h2>Our Mission</h2>
-          <p>
-            To empower organizations with cutting-edge cloud solutions that drive 
-            innovation, efficiency, and sustainable growth in the digital age.
-          </p>
-        </section>
+        <div className="about-content">
+          <section className="mission" aria-labelledby="mission-heading">
+            <h2 id="mission-heading">Our Mission</h2>
+            <p>
+              To empower organizations with cutting-edge cloud solutions that drive 
+              innovation, efficiency, and sustainable growth in the digital age.
+            </p>
+          </section>
 
-        <section className="values">
-          <h2>Our Values</h2>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <div key={index} className="value-card">
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+          <section className="values" aria-labelledby="values-heading">
+            <h2 id="values-heading">Our Values</h2>
+            <div className="values-grid">
+              {values.map((value, index) => (
+                <div key={index} className="value-card">
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        <section className="timeline">
-          <h2>Our Journey</h2>
-          <div className="timeline-grid">
-            {timeline.map((item, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-year">{item.year}</div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </div>
+          <section className="timeline" aria-labelledby="timeline-heading">
+            <h2 id="timeline-heading">Our Journey</h2>
+            <div className="timeline-grid">
+              {timeline.map((item, index) => (
+                <div key={index} className="timeline-item">
+                  <time className="timeline-year">{item.year}</time>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
   )
 }
 

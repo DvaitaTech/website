@@ -3,10 +3,16 @@ import Features from '../../components/Features/Features'
 
 const Home = () => {
   return (
-    <div className="home">
-      <Hero />
-      <Features />
-    </div>
+    <main className="home">
+      <article>
+        <header>
+          <Hero />
+        </header>
+        <section>
+          <Features />
+        </section>
+      </article>
+    </main>
   )
 }
 
