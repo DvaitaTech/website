@@ -1,4 +1,3 @@
-import { EmailData } from '@sendgrid/helpers/classes/email-address'
 import sgMail from '@sendgrid/mail'
 
 interface ContactFormData {
@@ -22,7 +21,7 @@ export async function onRequestPost({ request, env }) {
     }
 
     // Configure SendGrid
-    sgMail.setApiKey(env.SENDGRID_API_KEY)
+    // sgMail.setApiKey(env.SENDGRID_API_KEY)
 
     // Prepare email data
     const msg = {
@@ -45,7 +44,7 @@ Message: ${data.message}
     }
 
     // Send email
-    await sgMail.send(msg)
+    // await sgMail.send(msg)
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
