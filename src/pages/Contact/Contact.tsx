@@ -28,6 +28,8 @@ const Contact = () => {
             <div className="info-item">
               <h3>Address</h3>
               <address>
+                Dvaita Technologies<br />
+                BKC, F-Block<br />
                 Mumbai, India
               </address>
             </div>

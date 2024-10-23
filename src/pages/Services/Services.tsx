@@ -304,7 +304,7 @@ const Services = () => {
           </article>
         )}
       </Modal>
-    </div>
+    </main>
   )
 }
 

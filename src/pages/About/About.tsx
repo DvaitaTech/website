@@ -47,8 +47,8 @@ const About = () => {
     <main className="about-page">
       <article>
         <header className="about-hero">
-        <p>Transforming businesses through innovative cloud solutions and technical excellence</p>
-      </section>
+          <p>Transforming businesses through innovative cloud solutions and technical excellence</p>
+        </header>
 
         <div className="about-content">
           <section className="mission" aria-labelledby="mission-heading">
