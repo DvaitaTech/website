@@ -59,6 +59,37 @@
   border-top: 1px solid var(--neutral-300);
 }
 
+.case-study-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  background-color: var(--primary-100);
+  color: var(--neutral-100);
+}
+
+.case-study-modal h2 {
+  color: var(--neutral-900);
+  margin-bottom: 1rem;
+}
+
+.case-study-modal h3 {
+  color: var(--neutral-800);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.case-study-modal p {
+  color: var(--neutral-600);
+  margin-bottom: 1rem;
+}
+
+.case-study-modal ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  color: var(--neutral-600);
+}
+
+.case-study-modal .tech-tags {
+  margin-top: 1rem;
+}
 @media (max-width: 768px) {
   .services-page {
     padding: 1rem;
