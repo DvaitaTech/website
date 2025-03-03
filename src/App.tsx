@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import Services from './pages/Services/Services'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
+import WhatsApp from './pages/WhatsApp/WhatsApp'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/whatsapp" element={<WhatsApp />} />
             </Routes>
           </main>
         </div>

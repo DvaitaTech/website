@@ -33,6 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
 
         <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
           <Link to="/services" onClick={handleLinkClick}>Services</Link>
+          <Link to="/whatsapp" onClick={handleLinkClick}>WhatsApp API</Link>
           <Link to="/about" onClick={handleLinkClick}>About</Link>
           <Link to="/contact" onClick={handleLinkClick}>Contact</Link>
           <ThemeToggle />
