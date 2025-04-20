@@ -16,10 +16,112 @@ const Services = () => {
 
   const services = [
     {
-      title: 'Cloud Infrastructure',
-      description: 'Design and implementation of scalable cloud architectures on AWS, Azure, and GCP. Optimize costs and improve reliability.',
-      features: ['Infrastructure as Code', 'Cloud Migration', 'Cost Optimization', 'High Availability Design'],
-      technologies: ['AWS', 'Azure', 'GCP', 'Terraform', 'CloudFormation'],
+      title: 'Custom Software Development',
+      description: 'Tailored software solutions designed to address your unique business challenges and opportunities.',
+      features: ['Web Applications', 'Mobile Development', 'Desktop Software', 'Enterprise Solutions'],
+      technologies: ['React', 'Angular', 'Vue.js', 'Node.js', '.NET', 'Java'],
+      caseStudies: [
+        {
+          title: 'Enterprise CRM System',
+          description: 'Developed a custom CRM system for a multinational company, increasing sales efficiency by 35%',
+          challenge: 'Client was using multiple disconnected systems to manage customer relationships, leading to data silos and inefficient processes.',
+          solution: 'Designed and implemented a unified CRM platform tailored to their specific workflow with seamless integration to existing systems.',
+          results: [
+            '35% increase in sales team efficiency',
+            'Consolidated data from 5 legacy systems into a single platform',
+            'Improved lead conversion rate by 28%',
+            'Reduced customer onboarding time by 60%'
+          ],
+          technologies: ['React', 'Node.js', 'MongoDB', 'GraphQL', 'Docker']
+        },
+        {
+          title: 'Healthcare Patient Management System',
+          description: 'Built a comprehensive patient management system for a network of clinics, improving patient care and operational efficiency',
+          challenge: 'Client struggled with paper-based processes and basic electronic records that didn\'t support their workflow or regulatory requirements.',
+          solution: 'Developed a secure, HIPAA-compliant patient management system with scheduling, electronic health records, and billing integration.',
+          results: [
+            'Reduced administrative workload by 40%',
+            'Decreased patient wait times by 25%',
+            'Improved billing accuracy by 30%',
+            'Enhanced overall patient satisfaction scores by 45%'
+          ],
+          technologies: ['React', '.NET Core', 'SQL Server', 'Azure', 'FHIR']
+        }
+      ]
+    },
+    {
+      title: 'Web Application Development',
+      description: 'Modern, responsive, and scalable web applications built with cutting-edge technologies.',
+      features: ['Progressive Web Apps', 'SPA Development', 'E-commerce Platforms', 'CMS Solutions'],
+      technologies: ['React', 'Angular', 'Next.js', 'Node.js', 'PHP', 'Python'],
+      caseStudies: [
+        {
+          title: 'E-commerce Platform Redesign',
+          description: 'Completely redesigned and rebuilt an e-commerce platform, increasing conversions by 40%',
+          challenge: 'Client\'s outdated online store had poor performance, low conversion rates, and couldn\'t support their growing product catalog.',
+          solution: 'Developed a modern e-commerce platform with advanced search, personalization, and mobile-first design.',
+          results: [
+            '40% increase in conversion rate',
+            '65% improvement in page load speed',
+            '75% increase in mobile orders',
+            'Reduced cart abandonment by 30%'
+          ],
+          technologies: ['Next.js', 'Node.js', 'MongoDB', 'Redux', 'Stripe API']
+        },
+        {
+          title: 'Financial Dashboard Application',
+          description: 'Created a real-time financial dashboard for investment professionals, improving decision-making capabilities',
+          challenge: 'Client needed a sophisticated dashboard to consolidate financial data from multiple sources for quick analysis and decision-making.',
+          solution: 'Built a real-time dashboard with interactive data visualization, custom reports, and algorithm-based insights.',
+          results: [
+            'Reduced data analysis time by 75%',
+            'Increased investment team productivity by 30%',
+            'Improved accuracy of financial forecasts by 25%',
+            'Enabled real-time collaboration between team members'
+          ],
+          technologies: ['React', 'D3.js', 'Node.js', 'WebSockets', 'AWS']
+        }
+      ]
+    },
+    {
+      title: 'Mobile App Development',
+      description: 'Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences.',
+      features: ['Native iOS & Android', 'Cross-platform Development', 'Progressive Web Apps', 'App Store Optimization'],
+      technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Ionic', 'Firebase'],
+      caseStudies: [
+        {
+          title: 'Fitness Tracking App',
+          description: 'Developed a feature-rich fitness app with social features, resulting in 1M+ downloads',
+          challenge: 'Client wanted to enter the competitive fitness app market with innovative features and superior user experience.',
+          solution: 'Built a cross-platform app with real-time tracking, social sharing, and gamification elements.',
+          results: [
+            'Over 1 million downloads in the first year',
+            '4.8-star average rating across app stores',
+            '35% higher user retention than industry average',
+            'Successfully monetized through premium subscription model'
+          ],
+          technologies: ['React Native', 'Firebase', 'Node.js', 'MongoDB', 'AWS']
+        },
+        {
+          title: 'Field Service Management App',
+          description: 'Created a mobile solution for field technicians, increasing operational efficiency by 45%',
+          challenge: 'Client\'s field service technicians were using paper-based processes, causing delays and data accuracy issues.',
+          solution: 'Developed a native mobile app with offline capabilities, real-time updates, and integrated mapping and scheduling.',
+          results: [
+            '45% increase in technician productivity',
+            'Reduced paperwork time by 90%',
+            'Improved first-time fix rate by 25%',
+            'Enhanced customer satisfaction with real-time updates'
+          ],
+          technologies: ['Swift', 'Kotlin', 'Node.js', 'PostgreSQL', 'Google Maps API']
+        }
+      ]
+    },
+    {
+      title: 'Cloud Infrastructure & DevOps',
+      description: 'Modern cloud architecture and DevOps practices to optimize your applications for performance, scalability, and reliability.',
+      features: ['Cloud Migration', 'Infrastructure as Code', 'CI/CD Pipelines', 'Containerization'],
+      technologies: ['AWS', 'Azure', 'GCP', 'Kubernetes', 'Docker', 'Terraform'],
       caseStudies: [
         {
           title: 'Enterprise Cloud Migration',
@@ -35,93 +137,59 @@ const Services = () => {
           technologies: ['AWS', 'Terraform', 'Docker', 'Jenkins', 'EKS']
         },
         {
-          title: 'Global E-commerce Platform Scaling',
-          description: 'Scaled a rapidly growing e-commerce platform to handle 10x traffic increase during peak seasons',
-          challenge: 'Client\'s platform struggled with performance issues and downtime during high-traffic events like Black Friday.',
-          solution: 'Implemented a multi-region AWS architecture with auto-scaling, caching layers, and serverless components.',
+          title: 'DevOps Transformation',
+          description: 'Transformed the development workflow for a software company, accelerating time-to-market by 60%',
+          challenge: 'Client\'s development team faced slow release cycles, manual processes, and frequent production issues.',
+          solution: 'Implemented modern DevOps practices including CI/CD pipelines, infrastructure as code, and comprehensive monitoring.',
           results: [
-            'Achieved 99.999% uptime during peak traffic periods',
-            'Reduced average page load time from 3s to 0.8s',
-            'Scaled to handle 100,000 concurrent users without performance degradation',
-            'Implemented real-time analytics for business insights'
+            '60% faster time-to-market for new features',
+            'Reduced deployment failures by 75%',
+            'Decreased mean time to recovery (MTTR) from hours to minutes',
+            'Improved developer satisfaction and reduced burnout'
           ],
-          technologies: ['AWS', 'Lambda', 'DynamoDB', 'CloudFront', 'ElastiCache']
+          technologies: ['Azure DevOps', 'Kubernetes', 'Docker', 'Terraform', 'Prometheus']
         }
       ]
     },
     {
-      title: 'DevOps Automation',
-      description: 'Streamline your development workflow with modern CI/CD pipelines and automation tools.',
-      features: ['CI/CD Pipeline Setup', 'Automated Testing', 'Deployment Automation', 'Monitoring & Alerting'],
-      technologies: ['Jenkins', 'GitLab CI', 'GitHub Actions', 'ArgoCD', 'Spinnaker'],
+      title: 'AI & Machine Learning',
+      description: 'Cutting-edge AI and machine learning solutions to unlock insights, automate processes, and create intelligent applications.',
+      features: ['Predictive Analytics', 'Natural Language Processing', 'Computer Vision', 'Recommendation Systems'],
+      technologies: ['TensorFlow', 'PyTorch', 'OpenAI', 'Python', 'Hugging Face', 'AWS SageMaker'],
       caseStudies: [
         {
-          title: 'CI/CD Pipeline Optimization',
-          description: 'Reduced deployment time from hours to minutes for a major SaaS provider',
-          challenge: 'Client\'s manual deployment process was error-prone and time-consuming, causing frequent production issues.',
-          solution: 'Designed and implemented a fully automated CI/CD pipeline with comprehensive testing and deployment strategies.',
+          title: 'Customer Sentiment Analysis',
+          description: 'Built an NLP system to analyze customer feedback, increasing response time to issues by 80%',
+          challenge: 'Client was overwhelmed with customer feedback across multiple channels and couldn\'t identify critical issues quickly.',
+          solution: 'Developed a machine learning system to categorize and analyze sentiment across all customer communications.',
           results: [
-            'Reduced deployment time from 4 hours to 15 minutes',
-            'Zero downtime deployments',
-            '90% reduction in deployment-related incidents',
-            'Improved developer productivity by 60%'
+            '80% faster response to critical customer issues',
+            'Identified previously unknown product issues worth fixing',
+            'Improved overall customer satisfaction by 25%',
+            'Reduced customer support workload by 30%'
           ],
-          technologies: ['GitHub Actions', 'ArgoCD', 'Kubernetes', 'Jest', 'Cypress']
+          technologies: ['Python', 'TensorFlow', 'BERT', 'AWS SageMaker', 'Elasticsearch']
         },
         {
-          title: 'Continuous Deployment for Fintech App',
-          description: 'Implemented a robust CD pipeline for a critical financial application, ensuring security and compliance',
-          challenge: 'Client needed to increase deployment frequency while maintaining strict security and regulatory compliance.',
-          solution: 'Designed a secure CI/CD pipeline with automated security scanning, approval gates, and audit trails.',
+          title: 'Inventory Optimization AI',
+          description: 'Created a predictive inventory management system for a retail chain, reducing costs by $2.5M annually',
+          challenge: 'Client struggled with inventory issues - both stockouts of popular items and excess inventory of slow-moving products.',
+          solution: 'Built a machine learning system to predict optimal inventory levels based on multiple factors including seasonality, promotions, and trends.',
           results: [
-            'Increased deployment frequency from monthly to daily',
-            'Reduced time-to-market for new features by 70%',
-            'Achieved 100% compliance with financial industry regulations',
-            'Implemented automated rollback mechanisms for zero-downtime deployments'
+            '$2.5M annual savings from reduced excess inventory',
+            '35% reduction in stockouts',
+            '20% decrease in warehouse space requirements',
+            'Improved cash flow through optimized purchasing'
           ],
-          technologies: ['GitLab CI', 'Ansible', 'Vault', 'Aqua Security', 'ELK Stack']
-        }
-      ]
-    },
-    {
-      title: 'Kubernetes Solutions',
-      description: 'Expert container orchestration and microservices architecture implementation.',
-      features: ['Cluster Setup & Management', 'Application Containerization', 'Service Mesh Implementation', 'Security Hardening'],
-      technologies: ['Kubernetes', 'Docker', 'Istio', 'Helm', 'Prometheus'],
-      caseStudies: [
-        {
-          title: 'Microservices Transformation',
-          description: 'Modernized a monolithic application into microservices, improving scalability and reliability',
-          challenge: 'Client had a large, monolithic application that was difficult to scale and maintain, causing performance issues during peak loads.',
-          solution: 'Designed and implemented a microservices architecture using Kubernetes, breaking down the monolith into smaller, manageable services.',
-          results: [
-            'Improved application scalability by 300%',
-            'Reduced deployment time from days to hours',
-            'Increased system uptime from 99.9% to 99.99%',
-            'Enabled independent scaling of services, reducing costs by 25%'
-          ],
-          technologies: ['Kubernetes', 'Docker', 'Istio', 'Helm', 'Prometheus', 'Grafana']
-        },
-        {
-          title: 'Global CDN on Kubernetes',
-          description: 'Built a high-performance, globally distributed CDN using Kubernetes',
-          challenge: 'Client needed a cost-effective, scalable solution to deliver content globally with low latency.',
-          solution: 'Designed and implemented a custom CDN using Kubernetes clusters in multiple regions, with intelligent routing and caching.',
-          results: [
-            'Reduced content delivery latency by 60% globally',
-            'Achieved 99.99% availability across all regions',
-            'Scaled to handle 1 million requests per second during peak times',
-            'Reduced CDN costs by 50% compared to commercial CDN providers'
-          ],
-          technologies: ['Kubernetes', 'Istio', 'Envoy', 'Prometheus', 'Grafana', 'Terraform']
+          technologies: ['Python', 'PyTorch', 'MySQL', 'Power BI', 'Azure ML']
         }
       ]
     },
     {
       title: 'Data Engineering & Analytics',
       description: 'Build robust data pipelines and analytics solutions to derive actionable insights from your data.',
-      features: ['Data Warehouse Design', 'ETL Pipeline Development', 'Real-time Analytics', 'Machine Learning Integration'],
-      technologies: ['Apache Spark', 'Airflow', 'Snowflake', 'Databricks', 'Tableau'],
+      features: ['Data Warehouse Design', 'ETL Pipeline Development', 'Real-time Analytics', 'Business Intelligence'],
+      technologies: ['Apache Spark', 'Airflow', 'Snowflake', 'Databricks', 'Tableau', 'Power BI'],
       caseStudies: [
         {
           title: 'Real-time Analytics Platform',
@@ -137,85 +205,17 @@ const Services = () => {
           technologies: ['Apache Kafka', 'Spark Streaming', 'Snowflake', 'Airflow', 'Tableau']
         },
         {
-          title: 'Predictive Maintenance for Manufacturing',
-          description: 'Implemented a predictive maintenance system for a large manufacturing company, reducing downtime and maintenance costs',
-          challenge: 'Client faced frequent unexpected equipment failures, leading to costly production delays and high maintenance expenses.',
-          solution: 'Developed an IoT-based data collection system and machine learning models to predict equipment failures before they occur.',
+          title: 'Business Intelligence Dashboard',
+          description: 'Created comprehensive business intelligence dashboards for a multinational corporation',
+          challenge: 'Client lacked visibility into key performance indicators across their global operations.',
+          solution: 'Designed and implemented a suite of interactive dashboards with drill-down capabilities and automated reporting.',
           results: [
-            'Reduced unplanned downtime by 35%',
-            'Decreased maintenance costs by 25%',
-            'Improved overall equipment effectiveness (OEE) by 15%',
-            'Implemented real-time monitoring dashboard for all production lines'
+            'Provided executives with real-time visibility into global operations',
+            'Saved 20+ hours per week previously spent on manual reporting',
+            'Identified cost-saving opportunities worth $1.8M annually',
+            'Improved strategic decision making with data-driven insights'
           ],
-          technologies: ['Azure IoT Hub', 'Azure Machine Learning', 'Power BI', 'Apache Spark', 'Databricks']
-        }
-      ]
-    },
-    {
-      title: 'Security & Compliance',
-      description: 'Implement robust security measures and ensure compliance with industry regulations.',
-      features: ['Security Audits', 'Compliance Implementation', 'Penetration Testing', 'Security Monitoring'],
-      technologies: ['AWS Security Hub', 'Azure Sentinel', 'Splunk', 'Nessus', 'Qualys'],
-      caseStudies: [
-        {
-          title: 'HIPAA Compliance for Healthcare SaaS',
-          description: 'Achieved HIPAA compliance for a healthcare SaaS provider, enabling expansion into new markets',
-          challenge: 'Client needed to meet strict HIPAA requirements to serve healthcare customers while maintaining system performance.',
-          solution: 'Implemented end-to-end encryption, access controls, and comprehensive audit logging while optimizing for performance.',
-          results: [
-            'Achieved full HIPAA compliance certification',
-            'Expanded customer base by 40% in the healthcare sector',
-            'Implemented automated compliance checks, reducing audit preparation time by 70%',
-            'Enhanced overall system security, preventing several potential data breaches'
-          ],
-          technologies: ['AWS KMS', 'CloudTrail', 'Vault', 'Prisma Cloud', 'Splunk']
-        },
-        {
-          title: 'Zero Trust Security Implementation',
-          description: 'Implemented a zero trust security model for a multinational corporation, enhancing overall security posture',
-          challenge: 'Client\'s traditional perimeter-based security was inadequate for their increasingly distributed workforce and cloud-based applications.',
-          solution: 'Designed and implemented a comprehensive zero trust architecture, including identity-based access controls, micro-segmentation, and continuous monitoring.',
-          results: [
-            'Reduced successful security breaches by 90%',
-            'Improved visibility into network traffic and user behavior',
-            'Enabled secure remote work for all employees',
-            'Achieved compliance with multiple international security standards'
-          ],
-          technologies: ['Azure AD', 'Cisco Duo', 'Palo Alto Networks', 'Splunk SIEM', 'CrowdStrike']
-        }
-      ]
-    },
-    {
-      title: 'Serverless Architecture',
-      description: 'Design and implement scalable, cost-effective serverless solutions for modern applications.',
-      features: ['Function-as-a-Service (FaaS)', 'Event-driven Architecture', 'Serverless Databases', 'API Gateway Integration'],
-      technologies: ['AWS Lambda', 'Azure Functions', 'Google Cloud Functions', 'DynamoDB', 'API Gateway'],
-      caseStudies: [
-        {
-          title: 'Serverless Image Processing Pipeline',
-          description: 'Built a highly scalable, cost-effective image processing solution for a media company',
-          challenge: 'Client needed to process millions of user-uploaded images daily with varying workloads and strict budget constraints.',
-          solution: 'Designed a serverless architecture using AWS Lambda for image processing and Amazon S3 for storage, with SQS for job queuing.',
-          results: [
-            'Reduced image processing costs by 60% compared to previous solution',
-            'Scaled to handle 10x spikes in upload volume without performance degradation',
-            'Decreased average processing time from minutes to seconds',
-            'Implemented automatic image optimization, saving 40% in storage costs'
-          ],
-          technologies: ['AWS Lambda', 'S3', 'SQS', 'DynamoDB', 'CloudFront']
-        },
-        {
-          title: 'Serverless IoT Data Processing',
-          description: 'Developed a scalable, serverless solution for processing and analyzing IoT sensor data for a smart city project',
-          challenge: 'Client needed to process and analyze data from millions of IoT sensors in real-time, with highly variable workloads.',
-          solution: 'Implemented a serverless architecture using AWS IoT Core, Lambda, and Kinesis for data ingestion, processing, and real-time analytics.',
-          results: [
-            'Scaled to handle data from over 1 million IoT devices',
-            'Reduced data processing latency from minutes to seconds',
-            'Achieved 99.999% data processing reliability',
-            'Implemented real-time anomaly detection, improving city services response time by 50%'
-          ],
-          technologies: ['AWS IoT Core', 'Lambda', 'Kinesis', 'DynamoDB', 'QuickSight']
+          technologies: ['Power BI', 'SQL Server', 'Azure Data Factory', 'Azure Analysis Services']
         }
       ]
     }
@@ -225,9 +225,9 @@ const Services = () => {
     <main className="services-page">
       <article>
         <header>
-          <h1>Cloud & DevOps Services</h1>
+          <h1>Software Consulting Services</h1>
           <p className="services-intro">
-            Comprehensive cloud solutions and DevOps services to transform your business
+            Comprehensive software solutions to transform your business and drive innovation
           </p>
         </header>
 

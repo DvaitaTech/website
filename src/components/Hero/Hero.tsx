@@ -11,8 +11,8 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-content">
-        <h1>Transform Your DevOps Journey</h1>
-        <p>Expert consulting for modern cloud infrastructure and automation</p>
+        <h1>Custom Software Solutions</h1>
+        <p>Expert consulting for businesses seeking innovative technology solutions</p>
         <button className="cta-button" onClick={handleGetStarted}>Get Started</button>
       </div>
     </section>

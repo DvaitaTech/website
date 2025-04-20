@@ -3,79 +3,79 @@ import './Features.css'
 const Features = () => {
   const features = [
     {
-      icon: '🚀',
-      title: 'Cloud Infrastructure',
-      description: 'AWS, Azure & GCP architecture design, implementation and optimization'
-    },
-    {
-      icon: '🔄',
-      title: 'CI/CD Pipelines',
-      description: 'Automated build, test and deployment workflows with Jenkins, GitLab & GitHub Actions'
-    },
-    {
-      icon: '🛡️',
-      title: 'Security & Compliance',
-      description: 'Infrastructure security, compliance automation & vulnerability management'
-    },
-    {
-      icon: '🎯',
-      title: 'Kubernetes & Containers',
-      description: 'Container orchestration, microservices architecture & service mesh implementation'
-    },
-    {
-      icon: '📊',
-      title: 'Monitoring & Observability',
-      description: 'Comprehensive monitoring solutions with Prometheus, Grafana & ELK stack'
-    },
-    {
       icon: '💻',
-      title: 'Custom Development',
-      description: 'Full-stack development with modern frameworks and cloud-native technologies'
-    },
-    {
-      icon: '🔧',
-      title: 'Infrastructure as Code',
-      description: 'Automated infrastructure provisioning with Terraform, CloudFormation & Ansible'
-    },
-    {
-      icon: '🔍',
-      title: 'Performance Optimization',
-      description: 'Application performance monitoring, profiling & optimization'
-    },
-    {
-      icon: '💰',
-      title: 'Cost Management',
-      description: 'Cloud cost optimization, resource rightsizing & FinOps practices'
-    },
-    {
-      icon: '🔒',
-      title: 'Identity & Access Management',
-      description: 'IAM policies, role-based access control & SSO implementation'
-    },
-    {
-      icon: '🔄',
-      title: 'Database Management',
-      description: 'Database optimization, migration & high-availability setup'
+      title: 'Custom Software Development',
+      description: 'Tailored solutions for your unique business needs using modern technologies'
     },
     {
       icon: '🌐',
-      title: 'Network Architecture',
-      description: 'VPC design, load balancing & content delivery optimization'
+      title: 'Web Applications',
+      description: 'Responsive, scalable web applications with cutting-edge frontend and backend technologies'
     },
     {
       icon: '📱',
       title: 'Mobile Development',
-      description: 'Native and cross-platform mobile app development'
+      description: 'Native and cross-platform mobile apps for iOS and Android'
+    },
+    {
+      icon: '🚀',
+      title: 'Cloud Solutions',
+      description: 'Scalable cloud architecture and migration services for AWS, Azure & GCP'
     },
     {
       icon: '🤖',
-      title: 'Automation & Scripts',
-      description: 'Custom automation solutions & script development'
+      title: 'AI & Machine Learning',
+      description: 'Intelligent solutions leveraging the latest in artificial intelligence and machine learning'
     },
     {
-      icon: '🔥',
-      title: 'Incident Response',
-      description: 'On-call support, incident management & post-mortem analysis'
+      icon: '🔐',
+      title: 'Cybersecurity',
+      description: 'Application security, penetration testing, and secure development practices'
+    },
+    {
+      icon: '⚙️',
+      title: 'API Development',
+      description: 'RESTful and GraphQL API design, development and integration'
+    },
+    {
+      icon: '🔄',
+      title: 'Legacy System Modernization',
+      description: 'Transform outdated systems into modern, scalable applications'
+    },
+    {
+      icon: '📊',
+      title: 'Data Analytics',
+      description: 'Business intelligence, data visualization and analytics solutions'
+    },
+    {
+      icon: '🔍',
+      title: 'UX/UI Design',
+      description: 'User-centric design that enhances usability and engagement'
+    },
+    {
+      icon: '🛒',
+      title: 'E-commerce Solutions',
+      description: 'Custom online stores and marketplace platforms'
+    },
+    {
+      icon: '🔧',
+      title: 'DevOps & CI/CD',
+      description: 'Automated workflows for continuous integration and delivery'
+    },
+    {
+      icon: '💡',
+      title: 'Technology Consulting',
+      description: 'Strategic guidance for digital transformation and technology adoption'
+    },
+    {
+      icon: '📈',
+      title: 'Scalability Solutions',
+      description: 'Architecture optimization for high-traffic applications'
+    },
+    {
+      icon: '🤝',
+      title: 'Dedicated Development Teams',
+      description: 'Extended engineering teams that integrate with your business'
     }
   ]
 
