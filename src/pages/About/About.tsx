@@ -3,43 +3,43 @@ import './About.css'
 const About = () => {
   const values = [
     {
-      title: 'Innovation',
-      description: 'Constantly exploring cutting-edge technologies and methodologies to deliver the best solutions for our clients.'
+      title: 'Strategic Innovation',
+      description: 'Leading global enterprises through cutting-edge technology adoption and digital transformation initiatives.'
     },
     {
-      title: 'Excellence',
-      description: 'Committed to delivering high-quality solutions that exceed expectations and drive real business value.'
+      title: 'Enterprise Excellence',
+      description: 'Delivering world-class solutions that exceed expectations and drive measurable business outcomes.'
     },
     {
-      title: 'Collaboration',
-      description: 'Working closely with our clients as true partners to understand their needs and achieve their goals.'
+      title: 'Strategic Partnership',
+      description: 'Building long-term collaborative relationships with global enterprises to achieve sustainable competitive advantage.'
     },
     {
-      title: 'Integrity',
-      description: 'Operating with transparency, honesty, and ethical practices in all our business relationships.'
+      title: 'Global Integrity',
+      description: 'Maintaining the highest standards of professional ethics and corporate governance across all operations.'
     }
   ]
 
   const timeline = [
     {
       year: '2018',
-      title: 'Company Founded',
-      description: 'Started with a vision to transform enterprise IT infrastructure.'
+      title: 'Global Technology Vision',
+      description: 'Established with a mission to transform enterprise technology infrastructure worldwide.'
     },
     {
       year: '2020',
-      title: 'Global Expansion',
-      description: 'Expanded operations to serve clients across three continents.'
+      title: 'International Expansion',
+      description: 'Expanded operations to serve enterprise clients across North America, Europe, and Asia Pacific.'
     },
     {
       year: '2022',
-      title: 'Cloud Excellence',
-      description: 'Achieved premier partnership status with major cloud providers.'
+      title: 'Cloud Excellence Recognition',
+      description: 'Achieved premier partnership status with major cloud providers and established global delivery centers.'
     },
     {
       year: '2023',
-      title: 'Innovation Hub',
-      description: 'Launched our innovation lab focusing on AI and cloud-native solutions.'
+      title: 'Enterprise Innovation Hub',
+      description: 'Launched our global innovation lab focusing on AI, blockchain, and cloud-native enterprise solutions.'
     }
   ]
 
@@ -47,20 +47,20 @@ const About = () => {
     <main className="about-page">
       <article>
         <header className="about-hero">
-          <p>Transforming businesses through innovative cloud solutions and technical excellence</p>
+          <p>Transforming global enterprises through strategic technology solutions and digital excellence</p>
         </header>
 
         <div className="about-content">
           <section className="mission" aria-labelledby="mission-heading">
-            <h2 id="mission-heading">Our Mission</h2>
+            <h2 id="mission-heading">Our Strategic Mission</h2>
             <p>
-              To empower organizations with cutting-edge cloud solutions that drive 
-              innovation, efficiency, and sustainable growth in the digital age.
+              To empower global enterprises with cutting-edge technology solutions that drive 
+              innovation, operational excellence, and sustainable competitive advantage in the digital economy.
             </p>
           </section>
 
           <section className="values" aria-labelledby="values-heading">
-            <h2 id="values-heading">Our Values</h2>
+            <h2 id="values-heading">Enterprise Values</h2>
             <div className="values-grid">
               {values.map((value, index) => (
                 <div key={index} className="value-card">
@@ -72,7 +72,7 @@ const About = () => {
           </section>
 
           <section className="timeline" aria-labelledby="timeline-heading">
-            <h2 id="timeline-heading">Our Journey</h2>
+            <h2 id="timeline-heading">Global Journey</h2>
             <div className="timeline-grid">
               {timeline.map((item, index) => (
                 <div key={index} className="timeline-item">

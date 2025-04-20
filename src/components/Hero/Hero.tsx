@@ -13,9 +13,9 @@ const Hero = () => {
       <div className="shape shape-1"></div>
       <div className="shape shape-2"></div>
       <div className="hero-content">
-        <h1>Custom Software Solutions</h1>
-        <p>Expert consulting for businesses seeking innovative technology solutions that drive growth and efficiency</p>
-        <button className="cta-button" onClick={handleGetStarted}>Get Started</button>
+        <h1>Enterprise Technology Solutions</h1>
+        <p>Strategic technology transformation for global enterprises, delivering innovative solutions that drive digital excellence and sustainable growth</p>
+        <button className="cta-button" onClick={handleGetStarted}>Schedule a Consultation</button>
       </div>
     </section>
   )

@@ -4,85 +4,85 @@ const Features = () => {
   const features = [
     {
       icon: '💻',
-      title: 'Custom Software Development',
-      description: 'Tailored solutions for your unique business needs using modern technologies'
+      title: 'Enterprise Software Architecture',
+      description: 'Strategic design and implementation of scalable enterprise solutions using cutting-edge technologies'
     },
     {
       icon: '🌐',
-      title: 'Web Applications',
-      description: 'Responsive, scalable web applications with cutting-edge frontend and backend technologies'
+      title: 'Digital Transformation',
+      description: 'End-to-end digital transformation initiatives for global enterprises'
     },
     {
       icon: '📱',
-      title: 'Mobile Development',
-      description: 'Native and cross-platform mobile apps for iOS and Android'
+      title: 'Enterprise Mobility Solutions',
+      description: 'Secure, scalable mobile platforms for enterprise workforce enablement'
     },
     {
       icon: '🚀',
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud architecture and migration services for AWS, Azure & GCP'
+      title: 'Cloud Infrastructure & Strategy',
+      description: 'Enterprise-grade cloud architecture and migration services across AWS, Azure & GCP'
     },
     {
       icon: '🤖',
-      title: 'AI & Machine Learning',
-      description: 'Intelligent solutions leveraging the latest in artificial intelligence and machine learning'
+      title: 'Enterprise AI Solutions',
+      description: 'Strategic implementation of AI and machine learning for business process optimization'
     },
     {
       icon: '🔐',
-      title: 'Cybersecurity',
-      description: 'Application security, penetration testing, and secure development practices'
+      title: 'Enterprise Security',
+      description: 'Comprehensive security architecture and compliance frameworks for global operations'
     },
     {
       icon: '⚙️',
-      title: 'API Development',
-      description: 'RESTful and GraphQL API design, development and integration'
+      title: 'Enterprise Integration',
+      description: 'Seamless integration of enterprise systems and microservices architecture'
     },
     {
       icon: '🔄',
-      title: 'Legacy System Modernization',
-      description: 'Transform outdated systems into modern, scalable applications'
+      title: 'Legacy Modernization',
+      description: 'Strategic transformation of legacy systems into modern enterprise platforms'
     },
     {
       icon: '📊',
-      title: 'Data Analytics',
-      description: 'Business intelligence, data visualization and analytics solutions'
+      title: 'Enterprise Analytics',
+      description: 'Advanced business intelligence and data-driven decision making platforms'
     },
     {
       icon: '🔍',
-      title: 'UX/UI Design',
-      description: 'User-centric design that enhances usability and engagement'
+      title: 'Enterprise UX Strategy',
+      description: 'Strategic user experience design for enterprise-scale applications'
     },
     {
       icon: '🛒',
-      title: 'E-commerce Solutions',
-      description: 'Custom online stores and marketplace platforms'
+      title: 'Enterprise Commerce',
+      description: 'Scalable e-commerce platforms for global market operations'
     },
     {
       icon: '🔧',
-      title: 'DevOps & CI/CD',
-      description: 'Automated workflows for continuous integration and delivery'
+      title: 'Enterprise DevOps',
+      description: 'Enterprise-grade CI/CD and infrastructure automation'
     },
     {
       icon: '💡',
-      title: 'Technology Consulting',
-      description: 'Strategic guidance for digital transformation and technology adoption'
+      title: 'Technology Strategy',
+      description: 'Strategic technology roadmap development and digital transformation planning'
     },
     {
       icon: '📈',
-      title: 'Scalability Solutions',
-      description: 'Architecture optimization for high-traffic applications'
+      title: 'Enterprise Scalability',
+      description: 'Architecture optimization for global-scale operations'
     },
     {
       icon: '🤝',
-      title: 'Dedicated Development Teams',
-      description: 'Extended engineering teams that integrate with your business'
+      title: 'Strategic Technology Partnership',
+      description: 'Long-term technology partnership for enterprise innovation'
     }
   ]
 
   return (
     <section className="features">
       <div className="features-container">
-        <h2>Our Expertise</h2>
+        <h2>Enterprise Solutions</h2>
         <div className="features-grid">
           {features.map((feature, index) => (
             <div key={index} className="feature-card">
