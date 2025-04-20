@@ -1,37 +1,51 @@
 :root {
-  /* Primary Colors */
-  --primary-100: #2563eb;
-  --primary-200: #1d4ed8;
-  --primary-300: #1e40af;
+  /* Primary Colors - Professional Blue */
+  --primary-100: #0061a8;
+  --primary-200: #004d87;
+  --primary-300: #003b66;
 
-  /* Neutral Colors */
+  /* Accent Colors */
+  --accent-100: #00a896;
+  --accent-200: #02c39a;
+  --accent-300: #f8a978;
+
+  /* Neutral Colors - Clean, Corporate */
   --neutral-100: #ffffff;
-  --neutral-200: #f8f9fa;
-  --neutral-300: #e9ecef;
-  --neutral-400: #dee2e6;
+  --neutral-200: #f5f7fa;
+  --neutral-300: #eaecf0;
+  --neutral-400: #d9dde3;
   --neutral-500: #adb5bd;
   --neutral-600: #6c757d;
   --neutral-700: #495057;
   --neutral-800: #343a40;
-  --neutral-900: #212529;
+  --neutral-900: #1c2026;
 
   /* Shadow */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-sm: 0 2px 5px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.07);
 
   /* Button Colors */
   --button-bg: var(--primary-100);
   --button-text: var(--neutral-100);
+  
+  /* Fonts */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 [data-theme='dark'] {
-  --primary-100: #3b82f6;
-  --primary-200: #2563eb;
-  --primary-300: #1d4ed8;
+  --primary-100: #4285f4;
+  --primary-200: #1a73e8;
+  --primary-300: #0b57d0;
+
+  --accent-100: #26c0ab;
+  --accent-200: #38cebb;
+  --accent-300: #f8b980;
 
   --neutral-100: #1a1b1e;
-  --neutral-200: #242529;
-  --neutral-300: #2f3237;
+  --neutral-200: #23252c;
+  --neutral-300: #2c2e36;
   --neutral-400: #3a3f47;
   --neutral-500: #868e96;
   --neutral-600: #ced4da;
@@ -39,8 +53,9 @@
   --neutral-800: #e9ecef;
   --neutral-900: #f8f9fa;
 
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-sm: 0 2px 5px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
 
   /* Button Colors for Dark Mode */
   --button-bg: var(--primary-200);
