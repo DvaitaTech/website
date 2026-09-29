@@ -1,0 +1,958 @@
+/* ----------------------------------------------------------------- films
+
+   Each card well plays a short film of the thing its title says, made of the
+   gestures of real software: rows landing, a button pressed, a deploy going
+   through, words being read aloud. No icons standing in for features.
+
+   Rules (Beady's): every animation is one-shot with `both` fill and runs only
+   under `.play`; the plain CSS state is the finished frame. Colour stays in
+   here, inside the wells, and nowhere else on the page. */
+
+.card-art {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.mini {
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+@keyframes pull-out {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes press-soft {
+  45% {
+    transform: scale(0.93);
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@keyframes live {
+  from {
+    box-shadow: 0 0 0 0 rgb(60 122 69 / 0.5);
+  }
+  to {
+    box-shadow: 0 0 0 7px rgb(60 122 69 / 0);
+  }
+}
+
+/* --- products: a phone, three rows, one press ---------------------------- */
+
+.art-app {
+  background-color: var(--tint-bloom);
+}
+
+.phone {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 216px;
+  height: 330px;
+  padding: 14px 12px;
+  translate: -50% 0;
+  border-radius: 26px;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.phone-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 4px 10px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.phone-top b {
+  color: var(--color-ink);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.phone-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phone-rows li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background-color: #faf8f6;
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.phone-rows i {
+  flex: 0 0 18px;
+  height: 18px;
+  border-radius: 999px;
+  background-color: var(--c);
+}
+
+.phone-rows span {
+  color: var(--color-ink-body);
+}
+
+.phone-rows b {
+  margin-left: auto;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.phone-button {
+  display: block;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: var(--color-ink);
+  color: var(--color-surface);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* The label rolls up and the new one rolls in under it, Beady's button. */
+.phone-button {
+  position: relative;
+  height: 34px;
+  overflow: hidden;
+}
+
+.phone-button > span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.label-was {
+  opacity: 0;
+  transform: translateY(-120%);
+}
+
+.phone-button svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--leaf-new);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.play .label-was {
+  animation: label-out 360ms var(--ease-spring) 2000ms both;
+}
+
+.play .label-now {
+  animation: label-in 360ms var(--ease-spring) 2060ms both;
+}
+
+@keyframes label-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+}
+
+@keyframes label-in {
+  from {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+}
+
+/* A fingertip, not an arrow: this is a phone. */
+.touch {
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-radius: 999px;
+  background-color: rgb(18 18 18 / 0.14);
+  box-shadow: inset 0 0 0 1.5px rgb(18 18 18 / 0.22);
+  opacity: 0;
+}
+
+.play .phone-rows li {
+  animation: pull-out 560ms var(--ease-deal) both;
+  animation-delay: calc(260ms + var(--k) * 170ms);
+}
+
+.play .touch {
+  animation: tap 1300ms var(--ease-in-out-soft) 1000ms both;
+}
+
+@keyframes tap {
+  0% {
+    opacity: 0;
+    transform: translate(70px, 60px);
+  }
+  18% {
+    opacity: 1;
+  }
+  62% {
+    transform: none;
+  }
+  70% {
+    transform: scale(0.78);
+  }
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+.play .phone-button {
+  animation: press-soft 260ms var(--ease-out-soft) 1840ms;
+}
+
+/* --- public data: a sheet filling in ----------------------------------- */
+
+.art-data {
+  background-color: var(--tint-sky);
+}
+
+.sheet {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  right: -28px;
+  padding: 12px 16px 6px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 28px 10px 0;
+  font-size: 12px;
+}
+
+.sheet-head span:first-child {
+  font-weight: 500;
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-ink-muted);
+}
+
+.live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: var(--leaf-shade);
+}
+
+.play .live::before {
+  animation: live 1.8s var(--ease-out-soft) infinite;
+}
+
+.sheet-row {
+  display: grid;
+  grid-template-columns: 1.05fr 0.9fr 1.4fr;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0;
+  border-top: 1px solid var(--color-ring);
+  color: var(--color-ink-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.sheet-cols {
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.pct {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pct::before {
+  content: "";
+  flex: 0 0 64px;
+  height: 6px;
+  border-radius: 3px;
+  background:
+    linear-gradient(var(--leaf-shade), var(--leaf-shade)) 0 0 / calc(var(--v) * 100%) 100% no-repeat,
+    var(--color-sunk);
+}
+
+.play .sheet-row[style] {
+  animation: rise 480ms var(--ease-deal) both;
+  animation-delay: calc(240ms + var(--k) * 150ms);
+}
+
+.play .pct::before {
+  animation: bar-fill 820ms var(--ease-out-soft) both;
+  animation-delay: calc(560ms + var(--k) * 150ms);
+}
+
+@keyframes bar-fill {
+  from {
+    background-size:
+      0 100%,
+      auto;
+  }
+}
+
+/* --- cloud: a deploy going through, then thirty green days -------------- */
+
+.art-cloud {
+  background-color: var(--tint-leaf);
+}
+
+.pipe {
+  position: relative;
+  height: 48px;
+  margin: 12px 6px 0;
+}
+
+.pipe-line {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  right: 7px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: rgb(18 18 18 / 0.12);
+  overflow: hidden;
+}
+
+.pipe-line i {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-ink);
+  transform-origin: 0 50%;
+}
+
+.pipe-stop {
+  position: absolute;
+  top: 0;
+  left: calc(var(--n) * (100% - 16px) / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 16px;
+  color: var(--color-ink);
+  font-size: 12px;
+}
+
+.pipe-stop b {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background-color: var(--color-ink);
+}
+
+.pipe-stop:first-of-type {
+  align-items: flex-start;
+}
+
+.pipe-stop:last-of-type {
+  align-items: flex-end;
+}
+
+.pipe-log {
+  margin: 18px 6px 0;
+  color: var(--color-ink-body);
+}
+
+.pipe-log span {
+  margin-right: 4px;
+  padding: 2px 7px;
+  border-radius: var(--radius-badge);
+  background-color: rgb(255 255 255 / 0.75);
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.uptime {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 12px 14px 14px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.uptime-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.uptime-head b {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.uptime-tiles {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.uptime-tiles i {
+  height: 24px;
+  border-radius: 2px;
+  background-color: var(--leaf-shade);
+  transform-origin: 50% 100%;
+}
+
+.uptime-tiles i:nth-child(3n) {
+  background-color: #4a8747;
+}
+
+.uptime-tiles .blip {
+  background-color: var(--anther);
+}
+
+.play .pipe-line i {
+  animation: line-fill 2100ms var(--ease-in-out-soft) 300ms both;
+}
+
+@keyframes line-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.play .pipe-stop b {
+  animation: stop-lit 380ms var(--ease-spring) both;
+  animation-delay: calc(300ms + var(--n) * 680ms);
+}
+
+.play .pipe-stop {
+  animation: stop-label 380ms var(--ease-out-soft) both;
+  animation-delay: calc(300ms + var(--n) * 680ms);
+}
+
+@keyframes stop-lit {
+  0% {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 1.5px rgb(18 18 18 / 0.2);
+    scale: 1;
+  }
+  55% {
+    scale: 1.2;
+  }
+  100% {
+    background-color: var(--color-ink);
+    box-shadow: 0 0 0 0 transparent;
+    scale: 1;
+  }
+}
+
+@keyframes stop-label {
+  from {
+    color: var(--color-ink-muted);
+  }
+}
+
+.play .pipe-log {
+  animation: rise 480ms var(--ease-out-soft) 2500ms both;
+}
+
+.play .uptime-tiles i {
+  animation: tile-in 320ms var(--ease-spring) both;
+  animation-delay: calc(2700ms + var(--n) * 30ms);
+}
+
+@keyframes tile-in {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* --- LexiVox: a page read aloud, one word at a time -------------------- */
+
+.art-read {
+  background-color: var(--tint-paper);
+}
+
+.book {
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  right: 26px;
+  bottom: 84px;
+  padding: 20px 22px;
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+  overflow: hidden;
+}
+
+.book-text {
+  color: var(--color-ink);
+  font-size: 21px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+.book-text .w {
+  margin: 0 -2px;
+  padding: 1px 2px;
+  border-radius: 4px;
+}
+
+.play .book-text .w {
+  animation: spoken 520ms var(--ease-out-soft) both;
+  animation-delay: calc(500ms + var(--n) * 150ms);
+}
+
+@keyframes spoken {
+  0% {
+    color: #bdb9b3;
+    background-color: rgb(169 207 124 / 0);
+  }
+  25%,
+  60% {
+    color: var(--color-ink);
+    background-color: rgb(169 207 124 / 0.5);
+  }
+  100% {
+    color: var(--color-ink);
+    background-color: rgb(169 207 124 / 0);
+  }
+}
+
+.player {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.player-play {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  height: 30px;
+  border-radius: 999px;
+  background-color: var(--color-ink);
+}
+
+.player-play svg {
+  width: 12px;
+  height: 12px;
+  fill: #fff;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  flex: 1;
+  height: 22px;
+}
+
+.wave i {
+  flex: 1 1 0;
+  min-width: 2px;
+  max-width: 3px;
+  height: 100%;
+  border-radius: 2px;
+  background-color: var(--leaf-shade);
+  transform: scaleY(var(--h, 0.4));
+}
+
+.wave i:nth-child(2n) {
+  --h: 0.6;
+}
+
+.wave i:nth-child(3n) {
+  --h: 0.8;
+}
+
+.wave i:nth-child(7n + 2) {
+  --h: 0.3;
+}
+
+.wave i:nth-child(4n + 1) {
+  --h: 0.55;
+}
+
+.wave i:nth-child(5n) {
+  --h: 0.95;
+}
+
+.play .wave i {
+  animation: talk 620ms var(--ease-in-out-soft) infinite alternate;
+  animation-delay: calc(var(--h, 0.4) * -900ms);
+}
+
+@keyframes talk {
+  from {
+    transform: scaleY(0.2);
+  }
+}
+
+.player-time {
+  color: var(--color-ink-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- GradGuard: two posts, a reading, two verdicts --------------------- */
+
+.art-guard {
+  background-color: var(--tint-sand);
+}
+
+.post {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: calc(22px + var(--k) * 128px);
+  padding: 12px 14px 14px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.post-who {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.post-who i {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background-color: var(--c);
+}
+
+.post-who b {
+  font-weight: 500;
+}
+
+.post-who span {
+  color: var(--color-ink-muted);
+}
+
+.post p {
+  max-width: 34ch;
+  margin-top: 8px;
+  color: var(--color-ink-body);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.flag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 3px 9px;
+  border-radius: var(--radius-badge);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.flag-ok {
+  background-color: #dff1d4;
+  color: #245c2f;
+}
+
+.flag-look {
+  background-color: #fde3d4;
+  color: #9a3f16;
+}
+
+.scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
+  background: linear-gradient(180deg, transparent, rgb(236 108 45 / 0.14) 50%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play .post {
+  animation: rise 520ms var(--ease-deal) both;
+  animation-delay: calc(200ms + var(--k) * 180ms);
+}
+
+.play .scan {
+  animation: scan 1500ms var(--ease-in-out-soft) 800ms both;
+}
+
+@keyframes scan {
+  0% {
+    opacity: 1;
+    transform: translateY(-70px);
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(310px);
+  }
+}
+
+.play .flag-ok {
+  animation: pop 460ms var(--ease-spring) 1250ms both;
+}
+
+.play .flag-look {
+  animation: pop 460ms var(--ease-spring) 1850ms both;
+}
+
+/* --- Invoice Buddy: said in a chat, answered with an invoice ------------ */
+
+.art-chat {
+  background-color: #efe9e1;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 8px;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 8px 10px 7px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.bubble-me {
+  align-self: flex-end;
+  border-radius: 12px 12px 3px 12px;
+  background-color: #d9fdd3;
+}
+
+.bubble-me small {
+  float: right;
+  margin: 6px 0 -2px 10px;
+  color: #6e8a6a;
+  font-size: 11px;
+}
+
+.bubble-bot {
+  align-self: flex-start;
+  max-width: 86%;
+  padding: 6px 6px 8px;
+  border-radius: 12px 12px 12px 3px;
+  background-color: var(--color-surface);
+}
+
+.doc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: #f4f2ee;
+}
+
+.doc svg {
+  flex: 0 0 18px;
+  height: 22px;
+}
+
+.doc b {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.doc small {
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.bubble-bot p {
+  margin: 8px 6px 0;
+}
+
+.play .bubble-me {
+  animation: place 420ms var(--ease-deal) 250ms both;
+  transform-origin: 100% 100%;
+}
+
+.play .bubble-me .w {
+  animation: word-in 320ms var(--ease-out-soft) backwards;
+  animation-delay: calc(420ms + var(--n) * 70ms);
+}
+
+.play .bubble-bot {
+  animation: place 520ms var(--ease-deal) 1700ms both;
+  transform-origin: 0 100%;
+}
+
+.play .doc {
+  animation: pop 460ms var(--ease-spring) 1950ms both;
+}
+
+.play .bubble-bot p {
+  animation: rise 420ms var(--ease-out-soft) 2250ms both;
+}
+
+.bubble-late2 {
+  margin: 0;
+  padding: 8px 10px 7px;
+}
+
+.play .bubble-late {
+  animation: place 420ms var(--ease-deal) 3300ms both;
+}
+
+.play .bubble-late2 {
+  animation: place 520ms var(--ease-deal) 4100ms both;
+}
+
+/* --- MGNREGA and PMAY: a year of work, a tile at a time ---------------- */
+
+.art-bars {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tint-leaf);
+}
+
+.bars-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.bars-head span:first-child {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+  gap: 6px;
+  flex: 1;
+  margin-top: 14px;
+}
+
+.bar-col {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3px;
+}
+
+.bar-col i {
+  height: 14px;
+  border-radius: 2px;
+  background-color: var(--leaf-shade);
+}
+
+.bar-col i:nth-child(even) {
+  background-color: #4a8747;
+}
+
+.bar-col i:last-child {
+  background-color: var(--leaf-lit);
+}
+
+/* The best month flowers. */
+.bar-col:nth-child(11) i:last-child {
+  background-color: var(--bloom-deep);
+}
+
+.bars-months {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: var(--color-ink-muted);
+  font-size: 11px;
+}
+
+.play .bar-col i {
+  animation: pop 300ms var(--ease-spring) both;
+  animation-delay: calc(200ms + var(--m) * 80ms + var(--r) * 60ms);
+}
+
+.play .bar-col:nth-child(11) i:last-child {
+  animation: pop 520ms var(--ease-spring) both;
+  animation-delay: 2100ms;
+}
+
+@media (max-width: 559px) {
+  .phone {
+    width: 200px;
+  }
+
+  .book-text {
+    font-size: 16px;
+  }
+
+  .post {
+    left: 16px;
+    right: 16px;
+  }
+}

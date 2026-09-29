@@ -1,0 +1,349 @@
+/* ----------------------------------------------------------------- hero
+
+   A centred statement on clean canvas, and under it the hedge, which grows
+   up out of the soil line at the bottom of the first screen. */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: max(calc(100svh - 60px), 620px);
+}
+
+.statement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(40px, 9vh, 104px) 24px 0;
+  text-align: center;
+}
+
+.display {
+  max-width: 17ch;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 44ch;
+  color: var(--color-ink-body);
+  font-size: 17px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.statement .button {
+  margin-top: 8px;
+}
+
+.hedge {
+  width: 100%;
+  height: clamp(240px, 44vh, 500px);
+  margin-top: auto;
+}
+
+html[data-anim] .statement > * {
+  animation: rise 700ms var(--ease-out-soft) both;
+}
+
+html[data-anim] .statement > :nth-child(2) {
+  animation-delay: 80ms;
+}
+
+html[data-anim] .statement > :nth-child(3) {
+  animation-delay: 160ms;
+}
+
+/* ---------------------------------------------------------------- bands */
+
+.band {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 112px 32px;
+}
+
+.band + .band {
+  padding-top: 0;
+}
+
+.band-head {
+  max-width: 62ch;
+  margin-bottom: 44px;
+}
+
+.band-title {
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.band-lede {
+  max-width: 52ch;
+  margin-top: 16px;
+  color: var(--color-ink-body);
+  font-size: 17px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+@media (max-width: 799px) {
+  .band {
+    padding: 80px 20px;
+  }
+}
+
+/* ------------------------------------------------------------- the name
+
+   The one place the serif appears. The leaf beside it opens when the band
+   arrives: one leaf, two halves. */
+
+.name {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 72px;
+}
+
+.deva {
+  margin-bottom: 20px;
+  font-family: var(--font-deva);
+  font-size: clamp(88px, 11vw, 150px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.name-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 0.9;
+  margin: 0;
+  border-radius: var(--radius-block);
+  background-color: var(--tint-leaf);
+  box-shadow: 0 0 0 1px var(--color-ring);
+  overflow: hidden;
+}
+
+.leaf-big {
+  width: 58%;
+  height: auto;
+}
+
+.name-caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+  color: var(--color-ink-muted);
+  font-size: 13px;
+}
+
+/* The lobes open from the midrib in pixel steps, like the hedge. */
+.leaf-big .lobe-l {
+  transform-origin: 10px 0;
+}
+
+.leaf-big .lobe-r {
+  transform-origin: 11px 0;
+}
+
+.play .leaf-big .lobe {
+  animation: lobe-open 900ms steps(6, end) 350ms both;
+}
+
+.play .leaf-big {
+  animation: leaf-rise 700ms var(--ease-deal) both;
+}
+
+@keyframes lobe-open {
+  from {
+    transform: scaleX(0.12);
+    filter: saturate(0.6) brightness(1.15);
+  }
+}
+
+@keyframes leaf-rise {
+  from {
+    transform: translateY(18px) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 899px) {
+  .name {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+/* ---------------------------------------------------------------- cards
+
+   Beady's cards: white on the canvas, a one pixel ring and no shadow, a
+   pale well at the top playing a short film, then a title and a line. */
+
+.cards {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cards-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 14px 26px;
+  border-radius: var(--radius-block);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+  transition: box-shadow 240ms var(--ease-out-soft);
+}
+
+.card > :not(.card-art) {
+  padding: 0 12px;
+}
+
+.card-art {
+  position: relative;
+  height: 264px;
+  margin-bottom: 8px;
+  padding: 18px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: transform 420ms var(--ease-out-soft);
+}
+
+.cards-2 .card-art {
+  height: 300px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.32px;
+}
+
+.card-say {
+  max-width: 46ch;
+  color: var(--color-ink-body);
+  font-size: 15px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.card-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-link {
+  color: var(--color-ink-body);
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.card-link:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Hover is small on purpose: the ring darkens a step and the film leans in.
+   The card's own transform belongs to the deal, so it is never touched. */
+@media (hover: hover) {
+  .card.in-view:hover {
+    box-shadow: 0 0 0 1px var(--color-ink-faint);
+  }
+
+  .card:hover .card-art {
+    transform: scale(1.012);
+  }
+}
+
+@media (max-width: 999px) {
+  .cards-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 799px) {
+  .cards-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card-art,
+  .cards-2 .card-art {
+    height: 248px;
+  }
+}
+
+/* ---------------------------------------------------------------- close
+
+   Full bleed, in the palest bloom pink: the only band with a colour, and
+   the colour is the flower's. */
+
+.close {
+  margin-top: 8px;
+  padding: 104px 32px 112px;
+  background-color: var(--tint-bloom);
+}
+
+.close-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--page);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.close-title {
+  max-width: 16ch;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+  margin-top: 32px;
+}
+
+/* Straight after the pink band, the footer's own hairline would be a
+   second edge. */
+main:has(> .close:last-child) + .foot .foot-inner {
+  border-top: 0;
+}
+
+@media (max-width: 799px) {
+  .close {
+    padding: 80px 20px 88px;
+  }
+}

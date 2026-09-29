@@ -2,35 +2,214 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dvaita Technologies - Cloud & DevOps Solutions</title>
-    
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Dvaita Technologies - Cloud & DevOps Solutions">
-    <meta name="description" content="Expert consulting for modern cloud infrastructure, DevOps automation, and digital transformation. Transform your business with our innovative solutions.">
-    <meta name="keywords" content="cloud computing, DevOps, digital transformation, AWS, Azure, GCP, Kubernetes, CI/CD, infrastructure automation">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dvaitatech.com/">
-    <meta property="og:title" content="Dvaita Technologies - Cloud & DevOps Solutions">
-    <meta property="og:description" content="Expert consulting for modern cloud infrastructure, DevOps automation, and digital transformation. Transform your business with our innovative solutions.">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://dvaitatech.com/">
-    <meta property="twitter:title" content="Dvaita Technologies - Cloud & DevOps Solutions">
-    <meta property="twitter:description" content="Expert consulting for modern cloud infrastructure, DevOps automation, and digital transformation. Transform your business with our innovative solutions.">
-    
-    <!-- Robots -->
-    <meta name="robots" content="index, follow">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://dvaitatech.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dvaita Technologies</title>
+    <meta name="description" content="Dvaita builds software products, public data systems and the cloud they run on. Mumbai." />
+    <meta name="theme-color" content="#fbfaf9" />
+    <link rel="canonical" href="https://dvaitatech.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dvaitatech.com/" />
+    <meta property="og:title" content="Dvaita Technologies" />
+    <meta property="og:description" content="We build software, and keep it standing. Products, public data systems and the cloud they run on." />
+    <meta property="og:image" content="https://dvaitatech.com/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/tokens.css" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/home.css" />
+    <link rel="stylesheet" href="/src/styles/films.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="bar">
+      <div class="bar-inner">
+        <a class="wordmark" href="/" aria-label="Dvaita, home">dva<span class="wordmark-i">ı<svg class="wordmark-leaf" viewBox="0 0 7 4" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="1" height="1" fill="#82b863"/><rect x="1" y="0" width="1" height="1" fill="#82b863"/><rect x="5" y="0" width="1" height="1" fill="#356f3e"/><rect x="6" y="0" width="1" height="1" fill="#356f3e"/><rect x="0" y="1" width="1" height="1" fill="#82b863"/><rect x="1" y="1" width="1" height="1" fill="#82b863"/><rect x="2" y="1" width="1" height="1" fill="#82b863"/><rect x="4" y="1" width="1" height="1" fill="#356f3e"/><rect x="5" y="1" width="1" height="1" fill="#356f3e"/><rect x="6" y="1" width="1" height="1" fill="#356f3e"/><rect x="0" y="2" width="1" height="1" fill="#82b863"/><rect x="1" y="2" width="1" height="1" fill="#82b863"/><rect x="2" y="2" width="1" height="1" fill="#82b863"/><rect x="3" y="2" width="1" height="1" fill="#244a2b"/><rect x="4" y="2" width="1" height="1" fill="#356f3e"/><rect x="5" y="2" width="1" height="1" fill="#356f3e"/><rect x="6" y="2" width="1" height="1" fill="#356f3e"/><rect x="1" y="3" width="1" height="1" fill="#82b863"/><rect x="2" y="3" width="1" height="1" fill="#82b863"/><rect x="3" y="3" width="1" height="1" fill="#244a2b"/><rect x="4" y="3" width="1" height="1" fill="#356f3e"/><rect x="5" y="3" width="1" height="1" fill="#356f3e"/></svg></span>ta</a>
+        <nav class="bar-links" aria-label="Main">
+          <a class="link" href="#work">Work</a>
+          <a class="link" href="/contact">Contact</a>
+          <a class="button button-sm" href="/contact">Start a project</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="statement">
+          <h1 class="display" id="hero-title">We build software, and keep it standing.</h1>
+          <p class="lede">Products, public data systems and the cloud they run on. From Mumbai.</p>
+          <a class="button" href="/contact">Start a project <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <canvas class="hedge" aria-hidden="true"></canvas>
+      </section>
+
+      <section class="band name" aria-labelledby="name-title">
+        <div class="name-copy">
+          <p class="deva" lang="sa" data-reveal>द्वैत</p>
+          <h2 class="band-title" id="name-title" data-reveal style="--delay: 60ms">Two halves, one leaf.</h2>
+          <p class="band-lede" data-reveal style="--delay: 120ms">Dvaita means duality, from the Sanskrit for two. The kachnar leaf is a good picture of it. We think of software the same way: what people see and what keeps it running are one piece of work, so we build both.</p>
+        </div>
+        <figure class="name-art" data-film="0">
+          <svg class="leaf-big" viewBox="0 0 21 15" shape-rendering="crispEdges" aria-hidden="true"><g class="lobe lobe-l"><rect x="4" y="1" width=".92" height=".92" fill="#82b863"/><rect x="5" y="1" width=".92" height=".92" fill="#82b863"/><rect x="6" y="1" width=".92" height=".92" fill="#82b863"/><rect x="7" y="1" width=".92" height=".92" fill="#82b863"/><rect x="2" y="2" width=".92" height=".92" fill="#82b863"/><rect x="3" y="2" width=".92" height=".92" fill="#82b863"/><rect x="4" y="2" width=".92" height=".92" fill="#82b863"/><rect x="5" y="2" width=".92" height=".92" fill="#a3cd7a"/><rect x="6" y="2" width=".92" height=".92" fill="#82b863"/><rect x="7" y="2" width=".92" height=".92" fill="#82b863"/><rect x="2" y="3" width=".92" height=".92" fill="#82b863"/><rect x="3" y="3" width=".92" height=".92" fill="#82b863"/><rect x="4" y="3" width=".92" height=".92" fill="#82b863"/><rect x="5" y="3" width=".92" height=".92" fill="#82b863"/><rect x="6" y="3" width=".92" height=".92" fill="#a3cd7a"/><rect x="7" y="3" width=".92" height=".92" fill="#82b863"/><rect x="8" y="3" width=".92" height=".92" fill="#82b863"/><rect x="1" y="4" width=".92" height=".92" fill="#82b863"/><rect x="2" y="4" width=".92" height=".92" fill="#82b863"/><rect x="3" y="4" width=".92" height=".92" fill="#82b863"/><rect x="4" y="4" width=".92" height=".92" fill="#82b863"/><rect x="5" y="4" width=".92" height=".92" fill="#82b863"/><rect x="6" y="4" width=".92" height=".92" fill="#a3cd7a"/><rect x="7" y="4" width=".92" height=".92" fill="#82b863"/><rect x="8" y="4" width=".92" height=".92" fill="#82b863"/><rect x="9" y="4" width=".92" height=".92" fill="#82b863"/><rect x="1" y="5" width=".92" height=".92" fill="#82b863"/><rect x="2" y="5" width=".92" height=".92" fill="#82b863"/><rect x="3" y="5" width=".92" height=".92" fill="#82b863"/><rect x="4" y="5" width=".92" height=".92" fill="#82b863"/><rect x="5" y="5" width=".92" height=".92" fill="#82b863"/><rect x="6" y="5" width=".92" height=".92" fill="#82b863"/><rect x="7" y="5" width=".92" height=".92" fill="#a3cd7a"/><rect x="8" y="5" width=".92" height=".92" fill="#82b863"/><rect x="9" y="5" width=".92" height=".92" fill="#82b863"/><rect x="1" y="6" width=".92" height=".92" fill="#82b863"/><rect x="2" y="6" width=".92" height=".92" fill="#a3cd7a"/><rect x="3" y="6" width=".92" height=".92" fill="#82b863"/><rect x="4" y="6" width=".92" height=".92" fill="#82b863"/><rect x="5" y="6" width=".92" height=".92" fill="#82b863"/><rect x="6" y="6" width=".92" height=".92" fill="#82b863"/><rect x="7" y="6" width=".92" height=".92" fill="#82b863"/><rect x="8" y="6" width=".92" height=".92" fill="#a3cd7a"/><rect x="9" y="6" width=".92" height=".92" fill="#82b863"/><rect x="1" y="7" width=".92" height=".92" fill="#82b863"/><rect x="2" y="7" width=".92" height=".92" fill="#82b863"/><rect x="3" y="7" width=".92" height=".92" fill="#a3cd7a"/><rect x="4" y="7" width=".92" height=".92" fill="#a3cd7a"/><rect x="5" y="7" width=".92" height=".92" fill="#82b863"/><rect x="6" y="7" width=".92" height=".92" fill="#82b863"/><rect x="7" y="7" width=".92" height=".92" fill="#82b863"/><rect x="8" y="7" width=".92" height=".92" fill="#a3cd7a"/><rect x="9" y="7" width=".92" height=".92" fill="#82b863"/><rect x="2" y="8" width=".92" height=".92" fill="#82b863"/><rect x="3" y="8" width=".92" height=".92" fill="#82b863"/><rect x="4" y="8" width=".92" height=".92" fill="#82b863"/><rect x="5" y="8" width=".92" height=".92" fill="#a3cd7a"/><rect x="6" y="8" width=".92" height=".92" fill="#a3cd7a"/><rect x="7" y="8" width=".92" height=".92" fill="#82b863"/><rect x="8" y="8" width=".92" height=".92" fill="#82b863"/><rect x="9" y="8" width=".92" height=".92" fill="#a3cd7a"/><rect x="2" y="9" width=".92" height=".92" fill="#82b863"/><rect x="3" y="9" width=".92" height=".92" fill="#82b863"/><rect x="4" y="9" width=".92" height=".92" fill="#82b863"/><rect x="5" y="9" width=".92" height=".92" fill="#82b863"/><rect x="6" y="9" width=".92" height=".92" fill="#82b863"/><rect x="7" y="9" width=".92" height=".92" fill="#a3cd7a"/><rect x="8" y="9" width=".92" height=".92" fill="#a3cd7a"/><rect x="9" y="9" width=".92" height=".92" fill="#82b863"/><rect x="3" y="10" width=".92" height=".92" fill="#82b863"/><rect x="4" y="10" width=".92" height=".92" fill="#a3cd7a"/><rect x="5" y="10" width=".92" height=".92" fill="#a3cd7a"/><rect x="6" y="10" width=".92" height=".92" fill="#a3cd7a"/><rect x="7" y="10" width=".92" height=".92" fill="#82b863"/><rect x="8" y="10" width=".92" height=".92" fill="#82b863"/><rect x="9" y="10" width=".92" height=".92" fill="#a3cd7a"/><rect x="4" y="11" width=".92" height=".92" fill="#82b863"/><rect x="5" y="11" width=".92" height=".92" fill="#82b863"/><rect x="6" y="11" width=".92" height=".92" fill="#82b863"/><rect x="7" y="11" width=".92" height=".92" fill="#a3cd7a"/><rect x="8" y="11" width=".92" height=".92" fill="#a3cd7a"/><rect x="9" y="11" width=".92" height=".92" fill="#a3cd7a"/></g><g class="lobe lobe-r"><rect x="13" y="1" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="1" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="1" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="1" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="2" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="2" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="2" width=".92" height=".92" fill="#4a8747"/><rect x="16" y="2" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="2" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="2" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="3" width=".92" height=".92" fill="#4a8747"/><rect x="15" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="3" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="4" width=".92" height=".92" fill="#4a8747"/><rect x="15" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="19" y="4" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="5" width=".92" height=".92" fill="#4a8747"/><rect x="14" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="19" y="5" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="6" width=".92" height=".92" fill="#4a8747"/><rect x="13" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="6" width=".92" height=".92" fill="#4a8747"/><rect x="19" y="6" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="7" width=".92" height=".92" fill="#4a8747"/><rect x="13" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="7" width=".92" height=".92" fill="#4a8747"/><rect x="17" y="7" width=".92" height=".92" fill="#4a8747"/><rect x="18" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="19" y="7" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="8" width=".92" height=".92" fill="#4a8747"/><rect x="12" y="8" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="8" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="8" width=".92" height=".92" fill="#4a8747"/><rect x="15" y="8" width=".92" height=".92" fill="#4a8747"/><rect x="16" y="8" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="8" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="8" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="12" y="9" width=".92" height=".92" fill="#4a8747"/><rect x="13" y="9" width=".92" height=".92" fill="#4a8747"/><rect x="14" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="17" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="18" y="9" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="10" width=".92" height=".92" fill="#4a8747"/><rect x="12" y="10" width=".92" height=".92" fill="#356f3e"/><rect x="13" y="10" width=".92" height=".92" fill="#356f3e"/><rect x="14" y="10" width=".92" height=".92" fill="#4a8747"/><rect x="15" y="10" width=".92" height=".92" fill="#4a8747"/><rect x="16" y="10" width=".92" height=".92" fill="#4a8747"/><rect x="17" y="10" width=".92" height=".92" fill="#356f3e"/><rect x="11" y="11" width=".92" height=".92" fill="#4a8747"/><rect x="12" y="11" width=".92" height=".92" fill="#4a8747"/><rect x="13" y="11" width=".92" height=".92" fill="#4a8747"/><rect x="14" y="11" width=".92" height=".92" fill="#356f3e"/><rect x="15" y="11" width=".92" height=".92" fill="#356f3e"/><rect x="16" y="11" width=".92" height=".92" fill="#356f3e"/></g><g class="rib"><rect x="10" y="5" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="6" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="7" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="8" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="9" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="10" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="11" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="12" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="13" width=".92" height=".92" fill="#244a2b"/><rect x="10" y="14" width=".92" height=".92" fill="#244a2b"/></g></svg>
+          <figcaption class="name-caption">Kachnar, <i>Bauhinia variegata</i>. The genus is named after two brothers.</figcaption>
+        </figure>
+      </section>
+
+      <section class="band" id="what" aria-labelledby="what-title">
+        <div class="band-head" data-reveal>
+          <h2 class="band-title" id="what-title">Most of what we build is one of three things.</h2>
+        </div>
+        <ul class="cards cards-3">
+          <li class="card deal">
+            <div class="card-art art-app" data-film="7400" aria-hidden="true">
+              <div class="phone">
+                <div class="phone-top"><span>Due this week</span><b>₹24,450</b></div>
+                <ul class="phone-rows">
+                  <li style="--k: 0"><i style="--c: #eaa3cf"></i><span>Asha Traders</span><b>₹12,400</b></li>
+                  <li style="--k: 1"><i style="--c: #a9cf7c"></i><span>Joshi Stores</span><b>₹8,150</b></li>
+                  <li style="--k: 2"><i style="--c: #f2c14e"></i><span>Mehta Clinic</span><b>₹3,900</b></li>
+                </ul>
+                <span class="phone-button"><span class="label-was">Send reminders</span><span class="label-now"><svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" /></svg>3 reminders sent</span></span>
+              </div>
+              <span class="touch"></span>
+            </div>
+            <h3 class="card-title">Products</h3>
+            <p class="card-say">Web and mobile apps, from the first screen to launch day, and the updates after it.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-data" data-film="7400" aria-hidden="true">
+              <div class="sheet">
+                <div class="sheet-head"><span>Pune district</span><span class="live">Updated 2 min ago</span></div>
+                <div class="sheet-row sheet-cols"><span>Block</span><span>Job cards</span><span>Paid on time</span></div>
+                <div class="sheet-row" style="--k: 0"><span>Ambegaon</span><span>18,402</span><span class="pct" style="--v: 0.94">94%</span></div>
+                <div class="sheet-row" style="--k: 1"><span>Junnar</span><span>22,118</span><span class="pct" style="--v: 0.91">91%</span></div>
+                <div class="sheet-row" style="--k: 2"><span>Khed</span><span>15,730</span><span class="pct" style="--v: 0.97">97%</span></div>
+                <div class="sheet-row" style="--k: 3"><span>Maval</span><span>9,864</span><span class="pct" style="--v: 0.88">88%</span></div>
+              </div>
+            </div>
+            <h3 class="card-title">Public data systems</h3>
+            <p class="card-say">Scrapers, databases and dashboards for government and legal records, where the numbers have to be right.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-cloud" data-film="7400" aria-hidden="true">
+              <div class="pipe">
+                <div class="pipe-line"><i></i></div>
+                <span class="pipe-stop" style="--n: 0"><b></b>Build</span>
+                <span class="pipe-stop" style="--n: 1"><b></b>Test</span>
+                <span class="pipe-stop" style="--n: 2"><b></b>Deploy</span>
+                <span class="pipe-stop" style="--n: 3"><b></b>Live</span>
+              </div>
+              <p class="pipe-log"><span>main</span> deployed in 41s</p>
+              <div class="uptime">
+                <div class="uptime-head"><span>Uptime, last 30 days</span><b>99.98%</b></div>
+                <div class="uptime-tiles"><i style="--n: 0"></i><i style="--n: 1"></i><i style="--n: 2"></i><i style="--n: 3"></i><i style="--n: 4"></i><i style="--n: 5"></i><i style="--n: 6"></i><i style="--n: 7"></i><i style="--n: 8"></i><i style="--n: 9"></i><i style="--n: 10"></i><i style="--n: 11"></i><i style="--n: 12"></i><i style="--n: 13"></i><i style="--n: 14"></i><i style="--n: 15"></i><i style="--n: 16"></i><i style="--n: 17" class="blip"></i><i style="--n: 18"></i><i style="--n: 19"></i><i style="--n: 20"></i><i style="--n: 21"></i><i style="--n: 22"></i><i style="--n: 23"></i><i style="--n: 24"></i><i style="--n: 25"></i><i style="--n: 26"></i><i style="--n: 27"></i><i style="--n: 28"></i><i style="--n: 29"></i></div>
+              </div>
+            </div>
+            <h3 class="card-title">Cloud and upkeep</h3>
+            <p class="card-say">Servers, deploys and monitoring, looked after well past launch.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="band" id="work" aria-labelledby="work-title">
+        <div class="band-head" data-reveal>
+          <h2 class="band-title" id="work-title">Some of what we've made.</h2>
+        </div>
+        <ul class="cards cards-2">
+          <li class="card deal">
+            <div class="card-art art-read" data-film="8600" aria-hidden="true">
+              <div class="book">
+                <p class="book-text" data-words>It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief.</p>
+              </div>
+              <div class="player">
+                <span class="player-play"><svg viewBox="0 0 12 12"><path d="M3 2l7 4-7 4z" /></svg></span>
+                <span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="player-time">0:07</span>
+              </div>
+            </div>
+            <div class="card-row">
+              <h3 class="card-title">LexiVox</h3>
+              <a class="card-link" href="https://lexivox.dvaitatech.com/" target="_blank" rel="noopener">Try it <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="card-say">Turns EPUBs and PDFs into speech, right in the browser. Open source.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-guard" data-film="7600" aria-hidden="true">
+              <div class="post" style="--k: 0">
+                <div class="post-who"><i style="--c: #a9cf7c"></i><b>riya.k</b><span>2w</span></div>
+                <p>Finally got my I-20. New York, here I come.</p>
+                <span class="flag flag-ok">Looks fine</span>
+              </div>
+              <div class="post" style="--k: 1">
+                <div class="post-who"><i style="--c: #eaa3cf"></i><b>riya.k</b><span>1y</span></div>
+                <p>Throwback to the march last spring. Loudest day of my life.</p>
+                <span class="flag flag-look">Worth a second look</span>
+              </div>
+              <span class="scan"></span>
+            </div>
+            <div class="card-row"><h3 class="card-title">GradGuard</h3></div>
+            <p class="card-say">Reads a student's public posts before a US visa application and points out the ones worth a second look.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-chat" data-film="7800" aria-hidden="true">
+              <div class="chat">
+                <p class="bubble bubble-me"><span data-words>Invoice Meera Designs 12,000 for the logo work</span><small>11:02</small></p>
+                <div class="bubble bubble-bot">
+                  <span class="doc"><svg viewBox="0 0 16 20"><path d="M2 1h8l4 4v14H2z" fill="#fff" stroke="#c9b59b" /><path d="M10 1v4h4" fill="none" stroke="#c9b59b" /></svg><span><b>INV-0142.pdf</b><small>₹12,000 · Meera Designs</small></span></span>
+                  <p>Done. Shall I send it to Meera?</p>
+                </div>
+                <p class="bubble bubble-me bubble-late">Yes please<small>11:03</small></p>
+                <p class="bubble bubble-bot bubble-late2">Sent. I'll remind her on the 15th if it's still unpaid.</p>
+              </div>
+            </div>
+            <div class="card-row"><h3 class="card-title">Invoice Buddy</h3></div>
+            <p class="card-say">Invoices made and sent from a WhatsApp chat. Type it the way you'd tell your accountant.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-bars" data-film="7800" aria-hidden="true">
+              <div class="bars-head"><span>Households given work</span><span>2025–26</span></div>
+              <div class="bars"><span class="bar-col" style="--m: 0"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i></span><span class="bar-col" style="--m: 1"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i></span><span class="bar-col" style="--m: 2"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i></span><span class="bar-col" style="--m: 3"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i><i style="--r: 8"></i></span><span class="bar-col" style="--m: 4"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i></span><span class="bar-col" style="--m: 5"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i></span><span class="bar-col" style="--m: 6"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i></span><span class="bar-col" style="--m: 7"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i></span><span class="bar-col" style="--m: 8"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i></span><span class="bar-col" style="--m: 9"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i><i style="--r: 8"></i><i style="--r: 9"></i></span><span class="bar-col" style="--m: 10"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i><i style="--r: 8"></i><i style="--r: 9"></i><i style="--r: 10"></i></span><span class="bar-col" style="--m: 11"><i style="--r: 0"></i><i style="--r: 1"></i><i style="--r: 2"></i><i style="--r: 3"></i><i style="--r: 4"></i><i style="--r: 5"></i><i style="--r: 6"></i><i style="--r: 7"></i><i style="--r: 8"></i></span></div>
+              <div class="bars-months"><span>Apr</span><span>Jul</span><span>Oct</span><span>Jan</span><span>Mar</span></div>
+            </div>
+            <div class="card-row"><h3 class="card-title">MGNREGA and PMAY data</h3></div>
+            <p class="card-say">Pipelines and dashboards over public records for rural jobs and housing schemes.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="close" aria-labelledby="close-title">
+        <div class="close-inner" data-reveal>
+          <h2 class="close-title" id="close-title">Tell us what you're building.</h2>
+          <p class="band-lede">A few lines is enough to start.</p>
+          <div class="close-actions">
+            <a class="button" href="/contact">Start a project <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="link" href="mailto:contact@dvaitatech.com">contact@dvaitatech.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-inner">
+        <div>
+          <a class="wordmark" href="/" aria-label="Dvaita, home">dva<span class="wordmark-i">ı<svg class="wordmark-leaf" viewBox="0 0 7 4" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="1" height="1" fill="#82b863"/><rect x="1" y="0" width="1" height="1" fill="#82b863"/><rect x="5" y="0" width="1" height="1" fill="#356f3e"/><rect x="6" y="0" width="1" height="1" fill="#356f3e"/><rect x="0" y="1" width="1" height="1" fill="#82b863"/><rect x="1" y="1" width="1" height="1" fill="#82b863"/><rect x="2" y="1" width="1" height="1" fill="#82b863"/><rect x="4" y="1" width="1" height="1" fill="#356f3e"/><rect x="5" y="1" width="1" height="1" fill="#356f3e"/><rect x="6" y="1" width="1" height="1" fill="#356f3e"/><rect x="0" y="2" width="1" height="1" fill="#82b863"/><rect x="1" y="2" width="1" height="1" fill="#82b863"/><rect x="2" y="2" width="1" height="1" fill="#82b863"/><rect x="3" y="2" width="1" height="1" fill="#244a2b"/><rect x="4" y="2" width="1" height="1" fill="#356f3e"/><rect x="5" y="2" width="1" height="1" fill="#356f3e"/><rect x="6" y="2" width="1" height="1" fill="#356f3e"/><rect x="1" y="3" width="1" height="1" fill="#82b863"/><rect x="2" y="3" width="1" height="1" fill="#82b863"/><rect x="3" y="3" width="1" height="1" fill="#244a2b"/><rect x="4" y="3" width="1" height="1" fill="#356f3e"/><rect x="5" y="3" width="1" height="1" fill="#356f3e"/></svg></span>ta</a>
+          <p class="foot-say">Software, and the ground it stands on. Bandra Kurla Complex, Mumbai.</p>
+        </div>
+        <div class="foot-col">
+          <a class="link" href="/#work">Work</a>
+          <a class="link" href="/contact">Contact</a>
+          <a class="link" href="/whatsapp">WhatsApp Business</a>
+        </div>
+        <div class="foot-col">
+          <a class="link" href="mailto:contact@dvaitatech.com">contact@dvaitatech.com</a>
+          <a class="link" href="tel:+919892356631">+91 98923 56631</a>
+          <a class="link" href="https://github.com/DvaitaTech" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="foot-base"><span>© 2026 Dvaita Technologies</span><span>Made in Mumbai</span></div>
+    </footer>
+
+    <script type="module" src="/src/js/home.js"></script>
   </body>
 </html>
