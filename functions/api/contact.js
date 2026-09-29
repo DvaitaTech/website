@@ -1,13 +1,12 @@
 /* POST /api/contact, a Cloudflare Pages Function.
 
-   Sends the contact form to the team through Resend (resend.com). Set these
-   on the Pages project (Settings > Variables and secrets):
+   Posts the contact form to a Google Chat space through an incoming webhook.
+   Set this on the Pages project (Settings > Variables and secrets), as a secret:
 
-     RESEND_API_KEY   required, a Resend API key for a verified dvaitatech.com
-     CONTACT_TO       optional, defaults to contact@dvaitatech.com
-     CONTACT_FROM     optional, defaults to "Dvaita website <website@dvaitatech.com>"
+     CHAT_WEBHOOK_URL   required, the space's webhook URL
+                        (Space > Apps & integrations > Webhooks > Add webhook)
 
-   Without the key it answers 503, and the page tells the visitor to email
+   Without it the function answers 503, and the page tells the visitor to email
    instead, so nothing is ever silently dropped. */
 
 const json = (body, status = 200) =>
@@ -16,10 +15,19 @@ const json = (body, status = 200) =>
     headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
   });
 
+// Card text is Chat's small HTML subset, so visitor input is escaped before it
+// goes in. Newlines become <br> after escaping.
 const escape = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const html = (s) => escape(s).replace(/\r?\n/g, "<br>");
+
+// The plain `text` field (the notification preview) reads <users/all> and
+// <url|label> as markup, so angle brackets are dropped there.
+const plain = (s) => String(s).replace(/[<>]/g, "");
 
 const clip = (s, n) => String(s ?? "").trim().slice(0, n);
+
+const row = (label, value) => ({ decoratedText: { topLabel: label, text: html(value), wrapText: true } });
 
 export async function onRequestPost({ request, env }) {
   let data;
@@ -41,28 +49,36 @@ export async function onRequestPost({ request, env }) {
     return json({ error: "Name, a valid email and a message are needed" }, 400);
   }
 
-  if (!env.RESEND_API_KEY) return json({ error: "Mail is not set up yet" }, 503);
+  if (!env.CHAT_WEBHOOK_URL) return json({ error: "Chat is not set up yet" }, 503);
 
-  const lines = [`From: ${name} <${email}>`];
-  if (company) lines.push(`Company: ${company}`);
-  const text = [...lines, "", message].join("\n");
-  const html = `<p><b>${escape(name)}</b> &lt;${escape(email)}&gt;${company ? `<br>${escape(company)}` : ""}</p><p style="white-space:pre-wrap">${escape(message)}</p>`;
-
-  const res = await fetch("https://api.resend.com/emails", {
+  const who = company ? `${name}, ${company}` : name;
+  const res = await fetch(env.CHAT_WEBHOOK_URL, {
+    signal: AbortSignal.timeout(10_000),
     method: "POST",
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json; charset=UTF-8" },
     body: JSON.stringify({
-      from: env.CONTACT_FROM || "Dvaita website <website@dvaitatech.com>",
-      to: [env.CONTACT_TO || "contact@dvaitatech.com"],
-      reply_to: email,
-      subject: `New project enquiry from ${name}${company ? `, ${company}` : ""}`,
-      text,
-      html,
+      text: `New project enquiry from ${plain(who)}`,
+      cardsV2: [
+        {
+          cardId: "enquiry",
+          card: {
+            header: { title: "New project enquiry", subtitle: "dvaitatech.com/contact" },
+            sections: [
+              { widgets: [row("Name", name), row("Email", email), ...(company ? [row("Company", company)] : [])] },
+              { header: "Message", widgets: [{ textParagraph: { text: html(message) } }] },
+            ],
+          },
+        },
+      ],
     }),
+  }).catch((err) => {
+    console.error("chat webhook", err);
+    return null;
   });
 
+  if (!res) return json({ error: "Could not send" }, 502);
   if (!res.ok) {
-    console.error("resend", res.status, await res.text());
+    console.error("chat webhook", res.status, await res.text());
     return json({ error: "Could not send" }, 502);
   }
   return json({ ok: true });

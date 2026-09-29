@@ -15,12 +15,11 @@ Pushing to `main` deploys to the Cloudflare Pages project `dvaitatech` through `
 
 ## To do before it goes live (Saurabh)
 
-1. **Custom domain.** dvaitatech.com has Cloudflare nameservers but no A/CNAME record, so today only `dvaitatech.pages.dev` works. To fix it, go to Pages → dvaitatech → Custom domains and add `dvaitatech.com` and `www.dvaitatech.com`.
-2. **Contact form email.**
-   - Create a Resend account and verify `dvaitatech.com`. Resend's DNS records (SPF/DKIM on a subdomain) sit alongside the Google Workspace MX; they don't replace it.
-   - Then set `RESEND_API_KEY` under Pages → Settings → Variables and secrets.
-   - Optional: `CONTACT_TO` (default `contact@dvaitatech.com`) and `CONTACT_FROM` (default `Dvaita website <website@dvaitatech.com>`).
-   - Until the key is set, the form answers 503 and tells the visitor to email instead, so nothing is lost silently.
+1. **Custom domain.** Done. dvaitatech.com and www.dvaitatech.com are custom domains on the Pages project `dvaitatech` in the dvaitatech.com Cloudflare account (proxied CNAMEs to `dvaitatech-dqo.pages.dev`).
+2. **Contact form.** Done. Enquiries post as a card to the Google Chat space "Dvaita website enquiries" (saurabh@dvaitatech.com's Workspace) through an incoming webhook.
+   - The webhook URL is the Pages secret `CHAT_WEBHOOK_URL`. To move enquiries to another space, add a webhook there (Space > Apps & integrations > Webhooks) and replace the secret.
+   - Without the secret the form answers 503 and tells the visitor to email instead, so nothing is lost silently.
+   - Replies go out by hand: the card shows the visitor's email.
 3. **Check these facts:**
    - The contact email `contact@dvaitatech.com` and the phone number `+91 98923 56631`.
    - Whether GradGuard, Invoice Buddy and the MGNREGA/PMAY work can be named publicly. LexiVox is open source.
@@ -84,7 +83,7 @@ contact/index.html       form + details
 lexivox/index.html       LexiVox product page
 whatsapp/index.html      Meta verification page (noindex, kept out of the nav)
 404.html
-functions/api/contact.js Pages Function -> Resend
+functions/api/contact.js Pages Function -> Google Chat webhook
 src/styles/tokens.css    colours, type, radii, easing
 src/styles/base.css      bar, buttons, footer, reveal/deal, reduced motion
 src/styles/home.css      hero, name band, cards, close band
