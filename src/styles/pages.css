@@ -248,7 +248,9 @@
   position: relative;
   display: grid;
   place-items: center;
-  min-height: max(calc(100svh - 60px), 560px);
+  min-height: max(100svh, 620px);
+  margin-top: -60px;
+  padding-top: 60px;
   overflow: hidden;
 }
 

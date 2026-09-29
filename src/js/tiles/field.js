@@ -67,7 +67,7 @@ class Heap {
   }
 }
 
-export function growField({ cols, rows, clear, seed = 5 }) {
+export function growField({ cols, rows, clear, seed = 5, fadeTop = 0, fadeBottom = 0, keepTop = 0 }) {
   const r = rng(seed);
   const n = cols * rows;
   const time = new Float32Array(n).fill(Infinity);
@@ -175,6 +175,19 @@ export function growField({ cols, rows, clear, seed = 5 }) {
     // The outermost row of a front thins out, a dither into the page.
     if (d === 0 && r() < 0.45) continue;
     const band = Math.max(0, 6 - Math.min(6, Math.floor(d * 0.9 + r() * 0.8)));
+    // Dissolves: under the nav, so it sits on clear ground, and along the
+    // bottom, so the field melts into the next section instead of stopping.
+    // Tiles thin out in a dither and go pale as they near either edge.
+    let fade = 1;
+    if (y < keepTop) continue;
+    if (y < keepTop + fadeTop) fade = Math.min(fade, (y - keepTop + 0.5) / fadeTop);
+    if (y >= rows - fadeBottom) fade = Math.min(fade, (rows - y - 0.5) / fadeBottom);
+    if (fade < 1) {
+      if (r() > fade ** 1.6) continue;
+      const pale = Math.round((1 - fade) * 6);
+      tiles.push({ i, x, y, at: time[i] / tMax, side: side[i], band: Math.max(band, pale) });
+      continue;
+    }
     tiles.push({ i, x, y, at: time[i] / tMax, side: side[i], band });
   }
   return { tiles };

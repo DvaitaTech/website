@@ -65,9 +65,16 @@ a {
   position: sticky;
   top: 0;
   z-index: 30;
+  transition:
+    background-color 240ms var(--ease-out-soft),
+    box-shadow 240ms var(--ease-out-soft);
+}
+
+.bar.is-scrolled {
   background-color: color-mix(in srgb, var(--color-canvas) 86%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-ring) 70%, transparent);
 }
 
 .bar-inner {

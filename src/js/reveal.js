@@ -107,3 +107,13 @@ export function watchReveals() {
   watchInView();
   watchFilms();
 }
+
+/* The bar is clear over the top of a page and takes on its frosted ground
+   once the page scrolls under it. */
+export function watchBar() {
+  const bar = document.querySelector(".bar");
+  if (!bar) return;
+  const set = () => bar.classList.toggle("is-scrolled", scrollY > 8);
+  set();
+  addEventListener("scroll", set, { passive: true });
+}

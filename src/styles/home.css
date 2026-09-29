@@ -3,11 +3,15 @@
    The words in the middle of the first screen, and the field growing in
    toward them from every edge, stopping in a clearing around them. */
 
+/* The hero runs up under the bar, so the field fills the whole first
+   screen and the bar floats on it. */
 .hero {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: max(calc(100svh - 60px), 640px);
+  min-height: max(100svh, 700px);
+  margin-top: -60px;
+  padding-top: 60px;
   overflow: hidden;
 }
 

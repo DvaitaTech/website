@@ -53,7 +53,7 @@ const GROW = 2.1; // seconds from the first tile to the last
 const POP = 0.28;
 const FLIP = 0.7; // seconds a tile stays its twin
 
-export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24, whenSeen = false } = {}) {
+export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24, whenSeen = false, fadeTop = 0, fadeBottom = 0, keepTop = 0 } = {}) {
   const ctx = canvas.getContext("2d");
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const frozen = new URLSearchParams(location.search).get("t");
@@ -92,7 +92,15 @@ export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24, w
     // An ellipse that holds the text box with room around it.
     const rx = ((text.width / 2 + pad) * 1.02) / tile;
     const ry = ((text.height / 2 + pad) * 1.12) / tile;
-    tiles = growField({ cols, rows, clear: { cx, cy, rx, ry }, seed }).tiles;
+    tiles = growField({
+      cols,
+      rows,
+      clear: { cx, cy, rx, ry },
+      seed,
+      keepTop: Math.ceil(keepTop / tile),
+      fadeTop: Math.round(fadeTop / tile),
+      fadeBottom: Math.round((typeof fadeBottom === "function" ? fadeBottom(h) : fadeBottom) / tile),
+    }).tiles;
     for (const t of tiles) t.shade = (t.x * 7 + t.y * 13) % SHADES;
     grid = new Int32Array(cols * rows);
     flipped = new Float32Array(cols * rows);

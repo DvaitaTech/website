@@ -1,9 +1,10 @@
-import { watchReveals } from "./reveal.js";
+import { watchBar, watchReveals } from "./reveal.js";
 
 const form = document.querySelector("#contact-form");
 if (form) wireForm(form);
 
 watchReveals();
+watchBar();
 document.documentElement.dataset.anim = "";
 
 function wireForm(form) {
