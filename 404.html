@@ -26,12 +26,14 @@
       </div>
     </header>
 
-    <main class="page lost">
-      <h1 class="page-title" data-reveal>Nothing grew here.</h1>
-      <p class="page-lede" data-reveal style="--delay: 60ms">The page you were after isn't on this site, or it moved.</p>
-      <p data-reveal style="--delay: 120ms"><a class="button" href="/">Back to the start <span class="arrow" aria-hidden="true">→</span></a></p>
+    <main class="lost">
+      <canvas class="field" aria-hidden="true"></canvas>
+      <div class="lost-copy">
+        <h1 class="page-title">This page isn't here.</h1>
+        <p class="page-lede">It may have moved, or the link was mistyped.</p>
+        <a class="button" href="/">Back to the start <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
     </main>
-    <canvas class="hedge hedge-strip" aria-hidden="true"></canvas>
 
     <footer class="foot">
       <div class="foot-inner">
@@ -53,6 +55,6 @@
       <div class="foot-base"><span>© 2026 Dvaita Technologies</span><span>Made in Mumbai</span></div>
     </footer>
 
-    <script type="module" src="/src/js/contact.js"></script>
+    <script type="module" src="/src/js/lost.js"></script>
   </body>
 </html>

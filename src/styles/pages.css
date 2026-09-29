@@ -242,17 +242,34 @@
   }
 }
 
-/* A short strip of the hedge at the foot of the inside pages. */
-.hedge-strip {
-  display: block;
-  width: 100%;
-  height: 180px;
-}
-
 /* --------------------------------------------------------------- 404 */
 
-.lost .button {
-  margin-top: 32px;
+.lost {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: max(calc(100svh - 60px), 560px);
+  overflow: hidden;
+}
+
+.lost .field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lost-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.lost .page-lede {
+  margin-bottom: 28px;
 }
 
 /* --------------------------------------------------------------- whatsapp */

@@ -1,4 +1,4 @@
-/* Seeded so the hedge is the same composition on every visit: it is
+/* Seeded so the field is the same composition on every visit: it is
    art-directed, not a slot machine. mulberry32. */
 export function rng(seed) {
   let a = seed >>> 0;

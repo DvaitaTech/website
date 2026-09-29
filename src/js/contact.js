@@ -1,8 +1,4 @@
-import { mountHedge } from "./kachnar/render.js";
 import { watchReveals } from "./reveal.js";
-
-const strip = document.querySelector(".hedge-strip");
-if (strip) mountHedge(strip, { seed: 29, delay: 0.1, tall: 0.62, blooms: 0.45 });
 
 const form = document.querySelector("#contact-form");
 if (form) wireForm(form);

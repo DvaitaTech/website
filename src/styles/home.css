@@ -1,23 +1,32 @@
 /* ----------------------------------------------------------------- hero
 
-   A centred statement on clean canvas, and under it the hedge, which grows
-   up out of the soil line at the bottom of the first screen. */
+   The words in the middle of the first screen, and the field growing in
+   toward them from every edge, stopping in a clearing around them. */
 
 .hero {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: max(calc(100svh - 60px), 620px);
+  display: grid;
+  place-items: center;
+  min-height: max(calc(100svh - 60px), 640px);
+  overflow: hidden;
+}
+
+.field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .statement {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   max-width: 900px;
-  margin: 0 auto;
-  padding: clamp(40px, 9vh, 104px) 24px 0;
+  padding: 40px 24px;
   text-align: center;
 }
 
@@ -40,12 +49,6 @@
 
 .statement .button {
   margin-top: 8px;
-}
-
-.hedge {
-  width: 100%;
-  height: clamp(240px, 44vh, 500px);
-  margin-top: auto;
 }
 
 html[data-anim] .statement > * {
@@ -146,7 +149,7 @@ html[data-anim] .statement > :nth-child(3) {
   font-size: 13px;
 }
 
-/* The lobes open from the midrib in pixel steps, like the hedge. */
+/* The lobes open from the midrib in pixel steps. */
 .leaf-big .lobe-l {
   transform-origin: 10px 0;
 }
