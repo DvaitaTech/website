@@ -299,3 +299,41 @@ html[data-anim] .statement > :nth-child(3) {
     height: 280px;
   }
 }
+
+/* ---------------------------------------------------------------- close
+
+   Full bleed, in the palest bloom pink: the only band with a colour. */
+
+.close {
+  padding: 104px 32px 112px;
+  background-color: var(--tint-bloom);
+}
+
+.close-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--page);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.close .band-lede {
+  margin-top: 16px;
+}
+
+/* Straight after the pink band, the footer's own hairline would be a
+   second edge. */
+main:has(> .close:last-child) + .foot {
+  margin-top: 0;
+}
+
+main:has(> .close:last-child) + .foot .foot-main {
+  border-top: 0;
+}
+
+@media (max-width: 799px) {
+  .close {
+    padding: 80px 20px 88px;
+  }
+}
