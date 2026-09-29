@@ -63,7 +63,7 @@ The logomark is the kachnar leaf in pixels: the lit lobe and the shaded lobe. It
 
 ## LexiVox (`/lexivox`)
 
-This is a product page on this site. The old app at lexivox.dvaitatech.com no longer resolves, because it has no DNS record, so the page's button goes to GitHub. If the app is hosted again, point the "Get it on GitHub" button (or a second "Open LexiVox" button) at it.
+This is a product page on this site. The app itself is the separate repo `DvaitaTech/LexiVox`, deployed by the Git-connected Pages project `lexivox` in the dvaitatech.com Cloudflare account and served at lexivox.dvaitatech.com. The page's "Open LexiVox" button goes there, and "Get it on GitHub" goes to the repo.
 
 ## Motion (`src/js/reveal.js`, `src/styles/base.css`, `src/styles/films.css`)
 
