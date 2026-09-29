@@ -53,7 +53,7 @@ const GROW = 2.1; // seconds from the first tile to the last
 const POP = 0.28;
 const FLIP = 0.7; // seconds a tile stays its twin
 
-export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24 } = {}) {
+export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24, whenSeen = false } = {}) {
   const ctx = canvas.getContext("2d");
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const frozen = new URLSearchParams(location.search).get("t");
@@ -207,6 +207,19 @@ export function mountField(canvas, { around, seed = 5, delay = 0.15, pad = 24 } 
     });
   }
 
-  if (document.fonts?.ready) document.fonts.ready.then(start);
-  else start();
+  const ready = document.fonts?.ready ?? Promise.resolve();
+  if (whenSeen && !grown && "IntersectionObserver" in window) {
+    // Grown as it comes into view, not while it is off the bottom of the page.
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        ready.then(start);
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    );
+    io.observe(canvas);
+  } else {
+    ready.then(start);
+  }
 }
