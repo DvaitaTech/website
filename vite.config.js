@@ -10,6 +10,7 @@ export default defineConfig({
         home: resolve(import.meta.dirname, "index.html"),
         contact: resolve(import.meta.dirname, "contact/index.html"),
         whatsapp: resolve(import.meta.dirname, "whatsapp/index.html"),
+        lexivox: resolve(import.meta.dirname, "lexivox/index.html"),
         notFound: resolve(import.meta.dirname, "404.html"),
       },
     },

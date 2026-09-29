@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>WhatsApp Business · Dvaita Technologies</title>
-    <meta name="description" content="Invoice Buddy is the display name of our WhatsApp Business account, operated by Dvaita Technologies." />
+    <title>LexiVox · Dvaita Technologies</title>
+    <meta name="description" content="LexiVox reads EPUBs and PDFs aloud in your browser. The voice model runs on your device, so nothing you read leaves it. Open source." />
     <meta name="theme-color" content="#fbfaf9" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="/src/styles/tokens.css" />
     <link rel="stylesheet" href="/src/styles/base.css" />
     <link rel="stylesheet" href="/src/styles/pages.css" />
-    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="/src/styles/home.css" />
+    <link rel="stylesheet" href="/src/styles/films.css" />
+    <link rel="stylesheet" href="/src/styles/product.css" />
   </head>
   <body>
     <header class="bar">
@@ -27,22 +29,92 @@
       </div>
     </header>
 
-    <main class="page wa">
-      <h1 class="page-title" data-reveal>WhatsApp Business</h1>
-      <p class="page-lede" data-reveal style="--delay: 60ms">Our WhatsApp Business account shows the name Invoice Buddy. It is run by us, under our registered company.</p>
-      <dl class="wa-facts" data-reveal style="--delay: 120ms">
-        <div>
-          <dt>Display name</dt>
-          <dd>Invoice Buddy</dd>
-          <p>The name customers see when they message us on WhatsApp.</p>
+        <main class="product">
+      <section class="product-hero">
+        <p class="product-kicker" data-reveal>Open source, from Dvaita</p>
+        <h1 class="page-title" data-reveal style="--delay: 60ms">LexiVox reads your books aloud.</h1>
+        <p class="page-lede" data-reveal style="--delay: 120ms">Drop in an EPUB or a PDF and listen. The voice runs on your own device, so nothing you read ever leaves it.</p>
+        <div class="product-actions" data-reveal style="--delay: 180ms">
+          <a class="button" href="https://github.com/DvaitaTech/LexiVox" rel="noopener">Get it on GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="link" href="#run">Run it yourself</a>
         </div>
-        <div>
-          <dt>Operated by</dt>
-          <dd>Dvatia Technologies OPC Private Limited</dd>
-          <p>The registered company responsible for the account and everything sent from it.</p>
+      </section>
+
+      <section class="product-stage" aria-label="LexiVox reading a page">
+        <div class="stage-card deal">
+          <div class="card-art art-read stage-art" data-film="16000" aria-hidden="true">
+            <div class="book">
+              <p class="book-chapter">Chapter 1 · Loomings</p>
+              <p class="book-text" data-words>Call me Ishmael. Some years ago, never mind how long precisely, having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.</p>
+              <p class="book-next">It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul, I account it high time to get to sea as soon as I can.</p>
+            </div>
+            <div class="player">
+              <span class="player-play"><svg viewBox="0 0 12 12"><path d="M3 2l7 4-7 4z" /></svg></span>
+              <span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="player-voice">Heart · 1.0×</span>
+            </div>
+          </div>
         </div>
-      </dl>
-      <p class="wa-note" data-reveal style="--delay: 180ms">Our use of the WhatsApp Business API follows Meta's business verification and display name rules. Questions about the account: <a class="link" href="mailto:contact@dvaitatech.com">contact@dvaitatech.com</a>.</p>
+      </section>
+
+      <section class="band" aria-labelledby="how-title">
+        <div class="band-head" data-reveal>
+          <h2 class="band-title" id="how-title">Small, private, and it works on a train.</h2>
+        </div>
+        <ul class="cards cards-3">
+          <li class="card deal">
+            <div class="card-art art-toc" data-film="7000" aria-hidden="true">
+              <div class="toc mini">
+                <p class="toc-file">moby-dick.epub</p>
+                <ol>
+                  <li style="--k: 0">Loomings</li>
+                  <li style="--k: 1">The Carpet-Bag</li>
+                  <li style="--k: 2">The Spouter-Inn</li>
+                  <li style="--k: 3">The Counterpane</li>
+                  <li style="--k: 4">Breakfast</li>
+                </ol>
+              </div>
+            </div>
+            <h3 class="card-title">EPUB and PDF</h3>
+            <p class="card-say">Chapters and pages stay in order, and it carries on to the next one when a chapter ends.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-model" data-film="7000" aria-hidden="true">
+              <div class="model mini">
+                <div class="model-row"><b>Kokoro</b><span>82M parameters</span></div>
+                <div class="model-bar"><i></i></div>
+                <div class="model-row model-foot"><span class="model-chip">WebGPU</span><span class="model-done">Ready on this device</span></div>
+              </div>
+            </div>
+            <h3 class="card-title">The voice runs on your device</h3>
+            <p class="card-say">No uploads and no account. WebGPU where you have it, WebAssembly where you don't.</p>
+          </li>
+          <li class="card deal">
+            <div class="card-art art-offline" data-film="7000" aria-hidden="true">
+              <div class="offline mini">
+                <span class="offline-state"><svg viewBox="0 0 16 16"><path d="M2 6.5a9 9 0 0 1 12 0M4.5 9a5.5 5.5 0 0 1 7 0M7 11.5a2 2 0 0 1 2 0" /><path class="cut" d="M3 3l10 10" /></svg>Offline</span>
+                <span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <h3 class="card-title">Keeps reading offline</h3>
+            <p class="card-say">Install it like an app. Once it has loaded, it reads without a connection.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="band run" id="run" aria-labelledby="run-title">
+        <div class="run-copy" data-reveal>
+          <h2 class="band-title" id="run-title">Run it yourself.</h2>
+          <p class="band-lede">It's a small React app. Clone it, install, start. Apache 2.0, so you can take it anywhere.</p>
+          <a class="link" href="https://github.com/DvaitaTech/LexiVox" rel="noopener">DvaitaTech/LexiVox ↗</a>
+        </div>
+        <div class="terminal deal">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>Terminal</span></div>
+          <pre><code><span class="prompt">$</span> git clone https://github.com/DvaitaTech/LexiVox.git
+<span class="prompt">$</span> cd LexiVox &amp;&amp; npm install
+<span class="prompt">$</span> npm run dev</code></pre>
+        </div>
+      </section>
     </main>
 
     <footer class="foot">

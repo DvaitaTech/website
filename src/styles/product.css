@@ -1,0 +1,397 @@
+/* A product page: LexiVox. The same grammar as the home page. A centred
+   statement, one large film of the product doing its one thing, three
+   cards, and the way to run it. */
+
+.product-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(56px, 11vh, 120px) 24px 56px;
+  text-align: center;
+}
+
+.product-kicker {
+  margin-bottom: 18px;
+  color: var(--color-ink-muted);
+  font-size: 17px;
+}
+
+.product-hero .page-title {
+  max-width: 15ch;
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+  margin-top: 32px;
+}
+
+.product-stage {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.stage-card {
+  padding: 14px;
+  border-radius: 20px;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+.card-art.stage-art {
+  height: clamp(340px, 42vw, 460px);
+  margin: 0;
+  padding: 0;
+}
+
+.stage-art .book {
+  top: 36px;
+  left: 12%;
+  right: 12%;
+  bottom: 108px;
+  padding: 32px 40px;
+}
+
+.book-chapter {
+  margin-bottom: 14px;
+  color: var(--color-ink-muted);
+  font-size: 13px;
+}
+
+.stage-art .book-text {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.55;
+}
+
+.stage-art .player {
+  left: 12%;
+  right: 12%;
+  bottom: 32px;
+}
+
+.book-next {
+  margin-top: 14px;
+  color: #c9c5bf;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.55;
+}
+
+.player-voice {
+  color: var(--color-ink-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 799px) {
+  .product-stage {
+    padding: 0 16px;
+  }
+
+  .stage-art .book,
+  .stage-art .player {
+    left: 16px;
+    right: 16px;
+  }
+
+  .stage-art .book {
+    padding: 20px;
+  }
+}
+
+/* --- formats: a table of contents, the reading place moving down it ----- */
+
+.art-toc {
+  background-color: var(--tint-paper);
+}
+
+.toc {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  right: 24px;
+  padding: 14px 16px 8px;
+}
+
+.toc-file {
+  margin-bottom: 8px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ch;
+}
+
+.toc li {
+  counter-increment: ch;
+  display: flex;
+  gap: 12px;
+  margin: 0 -8px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  color: var(--color-ink-body);
+}
+
+.toc li::before {
+  content: counter(ch);
+  width: 14px;
+  color: var(--color-ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.toc li:nth-child(2) {
+  background-color: rgb(169 207 124 / 0.4);
+  color: var(--color-ink);
+}
+
+/* Chapter one ends and the place moves on to chapter two by itself. */
+.play .toc li:nth-child(1) {
+  animation: reading-first 2600ms steps(1, end) 300ms both;
+}
+
+.play .toc li:nth-child(2) {
+  animation: reading-second 2600ms steps(1, end) 300ms both;
+}
+
+@keyframes reading-first {
+  0%,
+  49% {
+    background-color: rgb(169 207 124 / 0.4);
+    color: var(--color-ink);
+  }
+  50%,
+  100% {
+    background-color: transparent;
+    color: var(--color-ink-body);
+  }
+}
+
+@keyframes reading-second {
+  0%,
+  49% {
+    background-color: transparent;
+    color: var(--color-ink-body);
+  }
+  50%,
+  100% {
+    background-color: rgb(169 207 124 / 0.4);
+    color: var(--color-ink);
+  }
+}
+
+/* --- on device: the model loads, then says so --------------------------- */
+
+.art-model {
+  background-color: var(--tint-leaf);
+}
+
+.model {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 24px;
+  padding: 18px;
+  translate: 0 -50%;
+}
+
+.model-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.model-row b {
+  color: var(--color-ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.model-bar {
+  height: 8px;
+  margin: 14px 0;
+  border-radius: 4px;
+  background-color: var(--color-sunk);
+  overflow: hidden;
+}
+
+.model-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--leaf-shade);
+  transform-origin: 0 50%;
+}
+
+.model-chip {
+  padding: 2px 7px;
+  border-radius: var(--radius-badge);
+  background-color: var(--color-sunk);
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.model-done {
+  color: #245c2f;
+}
+
+.play .model-bar i {
+  animation: load 1800ms var(--ease-in-out-soft) 300ms both;
+}
+
+@keyframes load {
+  from {
+    transform: scaleX(0);
+  }
+  60% {
+    transform: scaleX(0.72);
+  }
+}
+
+.play .model-done {
+  animation: pop 460ms var(--ease-spring) 2150ms both;
+}
+
+/* --- offline: the connection goes, the voice keeps going ---------------- */
+
+.art-offline {
+  background-color: var(--tint-sky);
+}
+
+.offline {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  translate: 0 -50%;
+}
+
+.offline-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.offline-state svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.offline-state .cut {
+  stroke: var(--bloom-deep);
+}
+
+.offline .wave {
+  height: 26px;
+}
+
+.play .offline-state .cut {
+  stroke-dasharray: 16;
+  animation: cut 500ms var(--ease-out-soft) 500ms both;
+}
+
+@keyframes cut {
+  from {
+    stroke-dashoffset: 16;
+  }
+}
+
+/* --- run it ---------------------------------------------------------------- */
+
+.run {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 64px;
+}
+
+.run-copy .link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--color-ink);
+}
+
+.terminal {
+  border-radius: var(--radius-window);
+  background-color: #1b1a18;
+  box-shadow: 0 0 0 1px #2c2a27;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  background-color: #252321;
+  color: #8c8883;
+  font-size: 12px;
+}
+
+.terminal-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background-color: #ff5f57;
+}
+
+.terminal-bar i:nth-child(2) {
+  background-color: #febc2e;
+}
+
+.terminal-bar i:nth-child(3) {
+  background-color: #28c840;
+}
+
+.terminal-bar span {
+  margin-left: 8px;
+}
+
+.terminal pre {
+  margin: 0;
+  padding: 22px 24px 26px;
+  overflow-x: auto;
+  color: #ecebe8;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.prompt {
+  color: var(--leaf-new);
+  user-select: none;
+}
+
+@media (max-width: 899px) {
+  .run {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .terminal pre {
+    font-size: 12.5px;
+  }
+}

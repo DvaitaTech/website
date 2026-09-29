@@ -23,7 +23,7 @@ Pushing to `main` deploys to the Cloudflare Pages project `dvaitatech` through `
    - Until the key is set, the form answers 503 and tells the visitor to email instead, so nothing is lost silently.
 3. **Check these facts:**
    - The contact email `contact@dvaitatech.com` and the phone number `+91 98923 56631`.
-   - Whether GradGuard, Invoice Buddy and the MGNREGA/PMAY work can be named publicly. LexiVox is already public.
+   - Whether GradGuard, Invoice Buddy and the MGNREGA/PMAY work can be named publicly. LexiVox is open source.
    - Whether Invoice Buddy really makes and sends invoices from WhatsApp. The card describes it that way.
    - **The legal name on `/whatsapp`.** It reads "Dvatia Technologies OPC Private Limited", copied letter for letter from the old page. If "Dvatia" is a typo, fix it, but only once the name matches what Meta has on record.
 
@@ -31,38 +31,40 @@ Pushing to `main` deploys to the Cloudflare Pages project `dvaitatech` through `
 
 The site follows the Beady site's grammar (`~/workspace/beady-site`):
 
-1. **Colour never argues.** The greens and pinks live inside the hedge, the pixel leaf and the card films. They never go on a heading, a button or a link. The pale pink closing band is the one exception, and its colour is the flower's.
+1. **Colour never argues.** The greens and pinks live inside the hero field, the pixel leaf, the footer mosaic and the card films. They never go on a heading, a button or a link. The pale pink closing band is the one exception, and its colour is the flower's.
 2. **Big type, light weight.** Display sizes use Inter 400 at -0.04em.
 3. **A ring, never a shadow.** Cards are `box-shadow: 0 0 0 1px var(--color-ring)`. There is no drop shadow anywhere.
 4. **The name keeps its serif.** द्वैत is set in Tiro Devanagari Sanskrit, and nothing else is.
 5. **Copy:** short, plain, first person plural, no em dashes. Don't add taglines, uppercase eyebrow labels, pills used as decoration, or stats nobody can back up.
 
-## The kachnar hedge (`src/js/kachnar/`)
+## The hero field (`src/js/tiles/`)
 
-This is the idea behind the whole site:
+- **What it does:** 8-bit tiles grow in from every edge of the first screen toward a clearing around the centred headline, then stop.
+- **Dvaita:** growth from the left half is green and from the right half pink, and the two meet in an interleaved seam above and below the words.
+- **Colour:** tiles on a growing front are the palest and each step inward is a band deeper. The outermost row of every front dithers out.
+- **Edges:**
+  - Nothing grows behind the bar (`keepTop`), and tiles dissolve in just below it (`fadeTop`).
+  - The bottom fifth dissolves into the next section (`fadeBottom`).
+  - The bar is clear over the hero and frosts once you scroll (`watchBar` in `reveal.js`).
+- **Pointer:** tiles under it turn to their twin, the same shade in the other half's colour, for 0.7s.
 
-- Kachnar (*Bauhinia*) has a leaf split into two lobes, one leaf in two halves, which is dvaita. The genus is named after the Bauhin brothers because of that leaf.
-- The hero hedge grows up out of the soil line in about 2.6s. Stems climb first, then leaves come out folded and open, then the flowers pop. After that it stays still.
+The two files:
 
-The three files:
+- `field.js`: first-passage growth, a Dijkstra with noisy step costs from every edge cell, plus the banding and dithers. `seed` changes the composition.
+- `render.js`:
+  - Measures the clearing from the headline block and lays the grid out at the canvas size.
+  - Draws settled tiles batched by colour; tiles still popping are drawn one at a time.
+  - Stops once grown, draws the finished frame under reduced motion, and re-lays out on resize.
 
-- `grow.js` lays out the hedge on a tile grid. Every piece (a stem tile, a leaf, a flower) gets a birth time and stages. The knobs:
-  - `SPEED` (tiles per second).
-  - The `profile()` curve: low in the middle under the headline, tall at the edges.
-  - Two layers: the back row is paler.
-  - The `tall` and `blooms` options.
-  - It is seeded, so the composition is the same on every visit. Change `seed` to get a different one.
-- `sprites.js` holds the pixel sprites. Leaves are `a` (lit lobe), `b` (shaded lobe) and `m` (midrib), so every leaf shows its two halves.
-- `render.js` draws on a Canvas2D:
-  - Settled tiles are resolved on a grid and drawn one colour at a time (about 3ms a frame at 1440px).
-  - Only pieces that are still popping are drawn tile by tile.
-  - It pauses off screen and in background tabs.
-  - It draws the finished frame straight away under `prefers-reduced-motion`.
-  - It re-lays out on resize.
+`?t=1.2` on any page freezes the growth at that moment, for review and screenshots. `public/og.png` was taken from `/?t=9` at 1200×630. The 404 uses the same field.
 
-`?t=1.2` on any page freezes the hedge at that moment. Use it for reviewing and screenshots. `public/og.png` was taken from `/?t=9` at 1200×630.
+The field appears once on the home page, in the hero, on purpose. The closing band is plain pale pink.
 
-The contact page and 404 use a short strip of the same hedge (`tall: 0.62, blooms: 0.45`).
+The logomark is the kachnar leaf in pixels: the lit lobe and the shaded lobe. It sits beside the name in the bar and footer, folds shut and opens on hover, and is also the favicon and the big leaf in the "Two halves, one leaf" band. The footer ends with द्वैत as a tile mosaic, split green and pink.
+
+## LexiVox (`/lexivox`)
+
+This is a product page on this site. The old app at lexivox.dvaitatech.com no longer resolves, because it has no DNS record, so the page's button goes to GitHub. If the app is hosted again, point the "Get it on GitHub" button (or a second "Open LexiVox" button) at it.
 
 ## Motion (`src/js/reveal.js`, `src/styles/base.css`, `src/styles/films.css`)
 
@@ -79,6 +81,7 @@ This is ported from Beady's `hero.js`:
 ```
 index.html               the one pager
 contact/index.html       form + details
+lexivox/index.html       LexiVox product page
 whatsapp/index.html      Meta verification page (noindex, kept out of the nav)
 404.html
 functions/api/contact.js Pages Function -> Resend
@@ -87,7 +90,7 @@ src/styles/base.css      bar, buttons, footer, reveal/deal, reduced motion
 src/styles/home.css      hero, name band, cards, close band
 src/styles/films.css     the card films
 src/styles/pages.css     contact / whatsapp / 404
-src/js/kachnar/          the hedge
+src/js/tiles/            the hero field
 public/                  favicon (the pixel leaf), og.png, _headers, robots, sitemap
 ```
 
