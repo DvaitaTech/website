@@ -93,6 +93,12 @@ a {
   text-decoration: none;
 }
 
+.wordmark-type {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1px;
+}
+
 /* The dot of the i is a kachnar leaf: one leaf, two halves. */
 .wordmark-i {
   position: relative;
@@ -100,9 +106,9 @@ a {
 
 .wordmark-leaf {
   position: absolute;
-  top: 0.02em;
+  top: 0.08em;
   left: 50%;
-  width: 0.44em;
+  width: 0.42em;
   height: auto;
   translate: -50% 0;
 }

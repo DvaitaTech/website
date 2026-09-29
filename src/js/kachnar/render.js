@@ -85,6 +85,11 @@ export function mountHedge(canvas, { seed = 11, delay = 0.25, tall = 1, blooms =
   let ox = 0;
   let oy = 0;
   let hedge = null;
+  let cols = 0;
+  let rows = 0;
+  let colours = [];
+  let grid = null;
+  let buckets = [];
   let t0 = null;
   let raf = 0;
   let finished = still;
@@ -98,23 +103,37 @@ export function mountHedge(canvas, { seed = 11, delay = 0.25, tall = 1, blooms =
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     tile = Math.max(5, Math.min(12, Math.round(w / 150)));
-    const cols = Math.ceil(w / tile);
-    const rows = Math.floor(h / tile);
+    cols = Math.ceil(w / tile);
+    rows = Math.floor(h / tile);
     ox = Math.floor((w - cols * tile) / 2);
     oy = h - rows * tile;
     hedge = growHedge({ cols, rows, seed, narrow: w < 700, tall, blooms });
+
+    // Every cell carries an index into one list of colours, so the settled
+    // tiles can be drawn a colour at a time.
+    const index = new Map();
+    colours = [];
+    const id = (colour) => {
+      if (!index.has(colour)) {
+        index.set(colour, colours.length);
+        colours.push(colour);
+      }
+      return index.get(colour);
+    };
     for (const p of hedge.pieces) {
       for (const s of p.stages) {
-        for (const c of s.cells) c[3] = colourOf(c[2], p.kind, p.layer, p.variant ?? 0, c[0], c[1]);
+        for (const c of s.cells) c[3] = id(colourOf(c[2], p.kind, p.layer, p.variant ?? 0, c[0], c[1]));
       }
     }
-    hedge.soil.forEach((c) => (c[3] = colourOf(c[2], "soil", 1, 0, c[0], c[1])));
+    hedge.soil.forEach((c) => (c[3] = id(colourOf(c[2], "soil", 1, 0, c[0], c[1]))));
+    grid = new Int32Array(cols * rows);
+    buckets = colours.map(() => []);
     return true;
   }
 
   // One tile: a square with a hairline gap, a lit top edge and a shaded
   // bottom edge, drawn in device pixels so it stays crisp.
-  function cell(gx, gy, colour, scale, ax, ay) {
+  function cell(gx, gy, ci, scale, ax, ay) {
     const size = tile * scale;
     const cx = ox + (ax + 0.5 + (gx - ax) * scale) * tile;
     const cy = oy + (ay + 1 + (gy + 0.5 - ay - 1) * scale) * tile;
@@ -123,7 +142,7 @@ export function mountHedge(canvas, { seed = 11, delay = 0.25, tall = 1, blooms =
     const y = Math.round((cy - size / 2) * dpr);
     const s = Math.round(size * dpr) - gap;
     if (s <= 0) return;
-    ctx.fillStyle = colour;
+    ctx.fillStyle = colours[ci];
     ctx.fillRect(x, y, s, s);
     const edge = Math.max(1, Math.round(s * 0.16));
     ctx.fillStyle = "rgb(255 255 255 / 0.13)";
@@ -132,18 +151,74 @@ export function mountHedge(canvas, { seed = 11, delay = 0.25, tall = 1, blooms =
     ctx.fillRect(x, y + s - edge, s, edge);
   }
 
+  /* Settled tiles are resolved on a grid first, in painting order, so the
+     last one to land on a cell wins, exactly as if each had been painted.
+     Then the grid is drawn a colour at a time: a few hundred fills instead of
+     tens of thousands. Only the pieces still popping are drawn tile by tile,
+     on top, because they are scaled and sit between grid cells. */
   function draw(t) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const [x, y, , colour] of hedge.soil) cell(x, y, colour, 1, x, y);
-    for (const p of hedge.pieces) {
-      const age = t - p.birth;
-      if (age < 0) continue;
-      let stage = p.stages[0];
-      for (const s of p.stages) if (s.at <= age) stage = s;
-      let scale = spring(age / POP);
-      if (stage.at > 0) scale *= 0.75 + 0.25 * spring((age - stage.at) / STAGE_POP);
-      for (const [x, y, , colour] of stage.cells) cell(x, y, colour, scale, p.ax, p.ay);
+    // The back row, soil included, then the front row, each in two passes,
+    // so a flower popping at the back never lands over a leaf in front.
+    for (const layer of [0, 1]) {
+      grid.fill(-1);
+      const popping = [];
+      if (layer === 0) for (const [x, y, , ci] of hedge.soil) grid[y * cols + x] = ci;
+      for (const p of hedge.pieces) {
+        if (p.layer !== layer) continue;
+        const age = t - p.birth;
+        if (age < 0) continue;
+        let stage = p.stages[0];
+        for (const s of p.stages) if (s.at <= age) stage = s;
+        const settled = age >= POP && (stage.at === 0 || age - stage.at >= STAGE_POP);
+        if (!settled) {
+          popping.push(p, stage, age);
+          continue;
+        }
+        for (const [x, y, , ci] of stage.cells) {
+          if (x >= 0 && x < cols && y >= 0 && y < rows) grid[y * cols + x] = ci;
+        }
+      }
+      paintGrid();
+      for (let k = 0; k < popping.length; k += 3) {
+        const p = popping[k];
+        const stage = popping[k + 1];
+        const age = popping[k + 2];
+        let scale = spring(age / POP);
+        if (stage.at > 0) scale *= 0.75 + 0.25 * spring((age - stage.at) / STAGE_POP);
+        for (const [x, y, , ci] of stage.cells) cell(x, y, ci, scale, p.ax, p.ay);
+      }
     }
+  }
+
+  function paintGrid() {
+    const size = Math.round(tile * dpr) - Math.max(1, Math.round(dpr * 0.75));
+    const edge = Math.max(1, Math.round(size * 0.16));
+    const xs = (i) => Math.round((ox + (i % cols) * tile) * dpr);
+    const ys = (i) => Math.round((oy + Math.floor(i / cols) * tile) * dpr);
+    for (const b of buckets) b.length = 0;
+    for (let i = 0; i < grid.length; i++) if (grid[i] >= 0) buckets[grid[i]].push(i);
+
+    buckets.forEach((b, ci) => {
+      if (!b.length) return;
+      ctx.fillStyle = colours[ci];
+      ctx.beginPath();
+      for (const i of b) ctx.rect(xs(i), ys(i), size, size);
+      ctx.fill();
+    });
+    const light = new Path2D();
+    const shade = new Path2D();
+    for (let i = 0; i < grid.length; i++) {
+      if (grid[i] < 0) continue;
+      const x = xs(i);
+      const y = ys(i);
+      light.rect(x, y, size, edge);
+      shade.rect(x, y + size - edge, size, edge);
+    }
+    ctx.fillStyle = "rgb(255 255 255 / 0.13)";
+    ctx.fill(light);
+    ctx.fillStyle = "rgb(0 0 0 / 0.07)";
+    ctx.fill(shade);
   }
 
   function frame(now) {
@@ -204,5 +279,5 @@ export function mountHedge(canvas, { seed = 11, delay = 0.25, tall = 1, blooms =
   new IntersectionObserver(([e]) => pause(!e.isIntersecting)).observe(canvas);
 
   start();
-  return { replay: () => ((finished = false), (t0 = null), start()) };
+  return { replay: () => ((finished = false), (t0 = null), start()), drawAt: (t) => draw(t) };
 }

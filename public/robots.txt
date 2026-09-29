@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /whatsapp
+
+Sitemap: https://dvaitatech.com/sitemap.xml

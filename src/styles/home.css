@@ -292,9 +292,8 @@ html[data-anim] .statement > :nth-child(3) {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .card-art,
   .cards-2 .card-art {
-    height: 248px;
+    height: 280px;
   }
 }
 

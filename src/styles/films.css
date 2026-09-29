@@ -117,7 +117,11 @@
 }
 
 .phone-rows span {
+  min-width: 0;
+  overflow: hidden;
   color: var(--color-ink-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .phone-rows b {
@@ -943,10 +947,6 @@
 }
 
 @media (max-width: 559px) {
-  .phone {
-    width: 200px;
-  }
-
   .book-text {
     font-size: 16px;
   }

@@ -1,7 +1,3 @@
 name = "dvaitatech"
-compatibility_date = "2023-10-30"
-compatibility_flags = ["nodejs_compat"]
+compatibility_date = "2026-09-01"
 pages_build_output_dir = "./dist"
-[pages]
-bucket = "./dist"
-project_name = "dvaitatech"
